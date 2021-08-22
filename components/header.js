@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa"
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Header() {
     const [menuIsActive, setMenuIsActive] = useState(false)
@@ -9,7 +10,7 @@ export default function Header() {
     return (
         <Container>
             <div className="logo">
-                <img src="/pfp.jpeg" width={35} height={35} />
+                <Image src="/pfp.jpeg" alt="profilePic" width={35} height={35} />
             </div>
             
             <div className="social">

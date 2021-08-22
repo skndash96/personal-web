@@ -30,10 +30,6 @@ export default function Main() {
                     content="Me a Full Stack developer"
                 />
                 <link rel="icon" href="/favicon.ico" />
-                
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet" />
             </Head>
             
             <Header />
@@ -41,6 +37,7 @@ export default function Main() {
             <Home landscape={landscape}>
                 <div>
                     <img
+                        alt="Effect"
                         className="effect"
                         src={landscape ? "/effect_right.svg" : "/effect_left.svg"}
                     />
@@ -48,7 +45,7 @@ export default function Main() {
                 
                 <div className="text">
                     <span> Make it simple, not simpler. </span>
-                    <span> I'm Dash Skndash. </span>
+                    <span> I&apos;m Dash Skndash. </span>
                 </div>
                 
                 <div className="model">
