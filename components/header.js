@@ -1,24 +1,29 @@
-import styled from "styled-components"
-import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa"
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
-import { useState } from 'react'
-import Image from 'next/image'
+import styled from "styled-components";
+import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
+import { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
-    const [menuIsActive, setMenuIsActive] = useState(false)
-    
+    const [menuIsActive, setMenuIsActive] = useState(false);
+
     return (
         <Container>
             <div className="logo">
-                <Image src="/pfp.jpeg" alt="profilePic" width={35} height={35} />
+                <Image
+                    src="/pfp.jpeg"
+                    alt="profilePic"
+                    width={35}
+                    height={35}
+                />
             </div>
-            
+
             <div className="social">
                 <FaGithub />
                 <FaTwitter />
                 <FaEnvelope />
             </div>
-            
+
             <NavBar
                 active={menuIsActive}
                 onClick={() => setMenuIsActive(!menuIsActive)}
@@ -27,7 +32,7 @@ export default function Header() {
                 <MdKeyboardArrowDown />
             </NavBar>
         </Container>
-    )
+    );
 }
 
 const Container = styled.div`
@@ -52,7 +57,7 @@ const Container = styled.div`
             margin: 0 2rem 0 0.5rem;
         }
     }
-`
+`;
 
 const NavBar = styled.div`
     z-index: 50;
@@ -65,9 +70,11 @@ const NavBar = styled.div`
     border-radius: 100%;
     font-size: 1.25rem;
     & svg:nth-child(1) {
-        transform: ${props => props.active ? "translateY(0.75rem)" : "translateY(0)"};
+        transform: ${(props) =>
+            props.active ? "translateY(0.75rem)" : "translateY(0)"};
     }
     & svg:nth-child(2) {
-        transform: ${props => props.active ? "translateY(-0.75rem)" : "translateY(0)"};
+        transform: ${(props) =>
+            props.active ? "translateY(-0.75rem)" : "translateY(0)"};
     }
-`
+`;

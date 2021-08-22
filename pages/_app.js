@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
   ${media.medium`
       html {
-          font-size: 2rem;
+          font-size: 1.8rem;
       }
   `}
 `;

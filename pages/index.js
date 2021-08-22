@@ -1,64 +1,60 @@
 import Head from "next/head";
-import Pencil from '../components/pencil'
-import Header from '../components/header'
-import styled from 'styled-components'
-import { media } from '../utils/style'
-import { useState, useEffect } from 'react'
+import Pencil from "../components/pencil";
+import Header from "../components/header";
+import styled from "styled-components";
+import { media } from "../utils/style";
+import { useState, useEffect } from "react";
 
 export default function Main() {
-    const [landscape, setLandscape] = useState(true)
-    
+    const [landscape, setLandscape] = useState(true);
+
     useEffect(() => {
         const handleResize = () => {
-            if(window.innerHeight <= window.innerWidth) setLandscape(true)
-            else setLandscape(false)
-        }
-        
-        handleResize()
-        
-        window.addEventListener("resize", handleResize)
-        
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
-    
+            if (window.innerHeight <= window.innerWidth) setLandscape(true);
+            else setLandscape(false);
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <Container>
             <Head>
                 <title> Dash Skndash </title>
-                <meta
-                    name="description"
-                    content="Me a Full Stack developer"
-                />
+                <meta name="description" content="Me a Full Stack developer" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            
+
             <Header />
-            
+
             <Home landscape={landscape}>
                 <div>
                     <img
                         alt="Effect"
                         className="effect"
-                        src={landscape ? "/effect_right.svg" : "/effect_left.svg"}
+                        src={
+                            landscape ? "/effect_right.svg" : "/effect_left.svg"
+                        }
                     />
                 </div>
-                
+
                 <div className="text">
                     <span> Make it simple, not simpler. </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
-                
+
                 <div className="model">
                     <Pencil />
                 </div>
             </Home>
-            
+
             <About>
-                <div className="title">
-                    About
-                </div>
+                <div className="title">About</div>
             </About>
-            
         </Container>
     );
 }
@@ -66,7 +62,7 @@ export default function Main() {
 const Container = styled.div`
     position: relative;
     width: 100%;
-`
+`;
 
 const Home = styled.div`
     position: relative;
@@ -81,7 +77,7 @@ const Home = styled.div`
     & .effect {
         position: absolute;
         top: 0;
-        ${props => props.landscape ? "right: 0;" : "left: 0;"}
+        ${(props) => (props.landscape ? "right: 0;" : "left: 0;")}
         width: 25vmax;
         height: 25max;
     }
@@ -90,7 +86,7 @@ const Home = styled.div`
         height: 75vh;
         transform: rotate(-15deg);
         position: absolute;
-        left: -10%; 
+        left: -10%;
         bottom: -25%;
         z-index: 50;
         ${media.landscape`
@@ -106,16 +102,16 @@ const Home = styled.div`
         }
         & span:nth-child(1) {
             font-weight: 700;
-            font-size: 1.5rem;
-            font-family: 'Work Sans'
+            font-size: 1.75rem;
+            font-family: "Work Sans";
         }
         & span:nth-child(2) {
             font-weight: 500;
-            font-size: 1.1rem;
-            font-family: 'Work Sans';
+            font-size: 1.25rem;
+            font-family: "Work Sans";
         }
     }
-`
+`;
 
 const About = styled.div`
     position: relative;
@@ -123,7 +119,7 @@ const About = styled.div`
     height: 75vh;
     max-height: 85vh;
     background: white;
-    overflowX: hidden;
+    overflowx: hidden;
     padding-left: 1rem;
     & .title {
         position: relative;
@@ -139,4 +135,4 @@ const About = styled.div`
         background: white;
         transform: translateY(-50%) skewY(4deg);
     }
-`
+`;
