@@ -1,10 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 import { media } from "../utils/style";
+import { useState, useEffect } from "react";
+import Loading from "../components/loading";
 
 function MyApp({ Component, pageProps }) {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => setIsLoading(false), 2000)
+    }, []);
+
     return (
         <>
             <GlobalStyle />
+            <Loading isLoading={isLoading} />
             <Component {...pageProps} />
         </>
     );

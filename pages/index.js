@@ -4,6 +4,7 @@ import Header from "../components/header";
 import styled from "styled-components";
 import { media } from "../utils/style";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Main() {
     const [landscape, setLandscape] = useState(true);
@@ -53,7 +54,20 @@ export default function Main() {
             </Home>
 
             <About>
-                <div className="title">About</div>
+                <h1 className="title"> Me </h1>
+                
+                <div className="infoContainer">
+                    <div className="pic">
+                        <Image layout="fill" objectFit="cover" src="/pfp.png" />
+                    </div>
+                    
+                    <div className="info">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit facilisis condimentum.
+                        </p>
+                    </div>
+                </div>
+                <hr />
             </About>
         </Container>
     );
@@ -90,7 +104,7 @@ const Home = styled.div`
         bottom: -25%;
         z-index: 50;
         ${media.landscape`
-            bottom: -7.5%;
+            bottom: -10%;
         `}
     }
     & .text {
@@ -116,15 +130,12 @@ const Home = styled.div`
 const About = styled.div`
     position: relative;
     width: 100%;
-    height: 75vh;
-    max-height: 85vh;
-    background: white;
+    min-height: 75vh;
+    background: #FEFEDF;
     overflowx: hidden;
     padding-left: 1rem;
-    & .title {
-        position: relative;
-        z-index: 50;
-    }
+    padding-bottom: 2.5rem;
+    padding-right: 1.5rem;
     &::before {
         content: "";
         position: absolute;
@@ -132,7 +143,53 @@ const About = styled.div`
         left: 0;
         width: 100%;
         height: 20%;
-        background: white;
+        background: #FEFEDF;
         transform: translateY(-50%) skewY(4deg);
+    }
+    & .title {
+        position: relative;
+        z-index: 50;
+        font-family: Sans-Serif;
+        text-align: center;
+        color: #FF8066;
+        -webkit-text-stroke: 1px black;
+        text-decoration: underline wavy #FF8066aa 0.2rem;
+        text-underline-offset: 5px;
+        margin-bottom: 2rem;
+    }
+    & .infoContainer {
+        display: grid;
+        & .pic {
+            position: relative;
+            width: 30vmax;
+            height: 30vmax;
+            background: #00c9a7;
+            border-radius: 100%;
+            overflow: hidden;
+            margin: auto;
+            margin-bottom: 1.5rem;
+        }
+        & .info {
+            margin: auto;
+            max-width: 75vw;
+            text-align: center;
+            & p {
+                line-height: 1.75rem;
+            }
+        }
+        ${media.landscape`
+            grid-template-columns: 1fr 1fr;
+            & .info {
+                text-align: left;
+            }
+        `}
+        
+    }
+    & hr {
+        display: block;
+        width: 80%;
+        margin: auto;
+        margin-top: 1rem;
+        border-color: #FF8066;
     }
 `;
