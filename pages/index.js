@@ -5,12 +5,10 @@ import styled from "styled-components";
 import { media } from "../utils/style";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Form from "../components/form";
 
 export default function Main() {
     const [landscape, setLandscape] = useState(true);
-    
-    const [formEmail, setFormEmail] = useState("")
-    const [formMessage, setFormMessage] = useState("")
 
     useEffect(() => {
         const handleResize = () => {
@@ -58,28 +56,34 @@ export default function Main() {
 
             <About>
                 <h1 className="title"> Me </h1>
-                
+
                 <div className="infoContainer">
                     <div className="pic">
                         <Image layout="fill" objectFit="cover" src="/pfp.png" />
                     </div>
-                    
+
                     <div className="info">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque blandit facilisis condimentum.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Pellentesque blandit facilisis condimentum.
                         </p>
                     </div>
                 </div>
                 <hr />
             </About>
-            
+
             <Contact>
                 <h1> Let&apos;s Connect </h1>
+                <div className="FormAndImgContainer">
+                    <div className="socialContainer">
+                        <Image layout="fill" src="/social.svg" />
+                    </div>
+                    <Form />
+                </div>
             </Contact>
         </Container>
     );
 }
-
 
 const Contact = styled.div`
     position: relative;
@@ -101,13 +105,29 @@ const Contact = styled.div`
         z-index: 50;
         font-family: Sans-Serif;
         text-align: center;
-        color: #FF8066;
+        color: #ff8066;
         -webkit-text-stroke: 1px black;
-        text-decoration: underline wavy #FF8066aa 0.2rem;
+        text-decoration: underline wavy #ff8066aa 0.2rem;
         text-underline-offset: 5px;
         margin-bottom: 2rem;
     }
-`
+    & .FormAndImgContainer {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        ${media.landscape`
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            justify-items: start;
+        `}
+    }
+    & .socialContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+`;
 
 const Home = styled.div`
     position: relative;
@@ -162,8 +182,8 @@ const About = styled.div`
     position: relative;
     width: 100%;
     min-height: 75vh;
-    background: #FEFEDF;
-    overflowX: hidden;
+    background: #fefedf;
+    overflowx: hidden;
     padding-left: 1rem;
     padding-bottom: 7.5rem;
     padding-right: 1.5rem;
@@ -174,7 +194,7 @@ const About = styled.div`
         left: 0;
         width: 100%;
         height: 20%;
-        background: #FEFEDF;
+        background: #fefedf;
         transform: translateY(-50%) skewY(4deg);
     }
     & .title {
@@ -182,9 +202,9 @@ const About = styled.div`
         z-index: 50;
         font-family: Sans-Serif;
         text-align: center;
-        color: #FF8066;
+        color: #ff8066;
         -webkit-text-stroke: 1px black;
-        text-decoration: underline wavy #FF8066aa 0.2rem;
+        text-decoration: underline wavy #ff8066aa 0.2rem;
         text-underline-offset: 5px;
         margin-bottom: 2rem;
     }
@@ -214,14 +234,13 @@ const About = styled.div`
                 text-align: left;
             }
         `}
-        
     }
     & hr {
         display: block;
         width: 80%;
         margin: auto;
         margin-top: 1rem;
-        border-color: #FF8066;
+        border-color: #ff8066;
     }
 `;
 

@@ -1,29 +1,29 @@
 import styled, { keyframes } from "styled-components";
-import Image from 'next/image'
-import { useRef, useEffect } from 'react'
+import Image from "next/image";
+import { useRef, useEffect } from "react";
 
 export default function Loading({ isLoading }) {
-    const screenRef = useRef()
-    
+    const screenRef = useRef();
+
     useEffect(() => {
         setTimeout(() => {
-            screenRef.current.remove()
-        }, 5000)
-    }, [])
-    
+            screenRef.current.remove();
+        }, 5000);
+    }, []);
+
     return (
-    <Screen ref={screenRef} isLoading={isLoading}>
-        <div className="logo">
-            <Image
-                priority={true}
-                src="/logo.svg"
-                layout="fill"
-                alt="logo"
-                objectFit="cover"
-            />
-        </div>
-    </Screen>
-    )
+        <Screen ref={screenRef} isLoading={isLoading}>
+            <div className="logo">
+                <Image
+                    priority={true}
+                    src="/logo.svg"
+                    layout="fill"
+                    alt="logo"
+                    objectFit="cover"
+                />
+            </div>
+        </Screen>
+    );
 }
 
 const logoAnim = keyframes`
@@ -39,7 +39,7 @@ const logoAnim = keyframes`
         height: 100vmax;
         opacity: 0.25;
     }
-`
+`;
 
 const Screen = styled.div`
     position: fixed;

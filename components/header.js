@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 import Image from "next/image";
-import { media } from '../utils/style'
+import { media } from "../utils/style";
 
 export default function Header() {
     const [menuIsActive, setMenuIsActive] = useState(false);
