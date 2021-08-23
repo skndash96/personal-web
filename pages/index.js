@@ -8,6 +8,9 @@ import Image from "next/image";
 
 export default function Main() {
     const [landscape, setLandscape] = useState(true);
+    
+    const [formEmail, setFormEmail] = useState("")
+    const [formMessage, setFormMessage] = useState("")
 
     useEffect(() => {
         const handleResize = () => {
@@ -69,14 +72,42 @@ export default function Main() {
                 </div>
                 <hr />
             </About>
+            
+            <Contact>
+                <h1> Let&apos;s Connect </h1>
+            </Contact>
         </Container>
     );
 }
 
-const Container = styled.div`
+
+const Contact = styled.div`
     position: relative;
     width: 100%;
-`;
+    min-height: 75vh;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 20%;
+        background: white;
+        box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
+    }
+    & h1 {
+        position: relative;
+        z-index: 50;
+        font-family: Sans-Serif;
+        text-align: center;
+        color: #FF8066;
+        -webkit-text-stroke: 1px black;
+        text-decoration: underline wavy #FF8066aa 0.2rem;
+        text-underline-offset: 5px;
+        margin-bottom: 2rem;
+    }
+`
 
 const Home = styled.div`
     position: relative;
@@ -132,9 +163,9 @@ const About = styled.div`
     width: 100%;
     min-height: 75vh;
     background: #FEFEDF;
-    overflowx: hidden;
+    overflowX: hidden;
     padding-left: 1rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 7.5rem;
     padding-right: 1.5rem;
     &::before {
         content: "";
@@ -192,4 +223,9 @@ const About = styled.div`
         margin-top: 1rem;
         border-color: #FF8066;
     }
+`;
+
+const Container = styled.div`
+    position: relative;
+    width: 100%;
 `;

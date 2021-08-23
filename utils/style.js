@@ -1,6 +1,7 @@
 import { css } from "styled-components";
 
 const queries = {
+    verysmall: "(max-width: 298px)",
     medium: "(min-width: 768px)",
     large: "(min-width: 992px)",
     landscape: "(orientation: landscape)",

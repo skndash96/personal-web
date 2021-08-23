@@ -1,8 +1,45 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import Image from 'next/image'
+import { useRef, useEffect } from 'react'
 
 export default function Loading({ isLoading }) {
-    return <Screen isLoading={isLoading}>Loading...</Screen>;
+    const screenRef = useRef()
+    
+    useEffect(() => {
+        setTimeout(() => {
+            screenRef.current.remove()
+        }, 5000)
+    }, [])
+    
+    return (
+    <Screen ref={screenRef} isLoading={isLoading}>
+        <div className="logo">
+            <Image
+                priority={true}
+                src="/logo.svg"
+                layout="fill"
+                alt="logo"
+                objectFit="cover"
+            />
+        </div>
+    </Screen>
+    )
 }
+
+const logoAnim = keyframes`
+    0% {}
+    50% {}
+    51% {
+        width: 0vmax;
+        height: 0vmax;
+        opacity: 0;
+    }
+    100% {
+        width: 100vmax;
+        height: 100vmax;
+        opacity: 0.25;
+    }
+`
 
 const Screen = styled.div`
     position: fixed;
@@ -14,5 +51,25 @@ const Screen = styled.div`
     place-items: center;
     background: #4b4453;
     color: white;
-    transform: translateY(${(props) => (props.isLoading ? "0%" : "-100%")});
+    overflow: hidden;
+    transform: translateY(${({ isLoading }) => (isLoading ? "0%" : "-100%")});
+    & .logo {
+        position: relative;
+        width: 10vmax;
+        height: 10vmax;
+        background: #ff8066;
+        border-radius: 100%;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 100%;
+            animation: ${logoAnim} 2s linear infinite;
+        }
+    }
 `;

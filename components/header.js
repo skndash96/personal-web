@@ -3,6 +3,7 @@ import { FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 import Image from "next/image";
+import { media } from '../utils/style'
 
 export default function Header() {
     const [menuIsActive, setMenuIsActive] = useState(false);
@@ -11,10 +12,11 @@ export default function Header() {
         <Container>
             <div className="logo">
                 <Image
-                    src="/pfp.jpeg"
+                    priority={true}
+                    src="/logo.svg"
                     alt="profilePic"
-                    width={35}
-                    height={35}
+                    layout="fill"
+                    objectFit="cover"
                 />
             </div>
 
@@ -42,17 +44,24 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: 0 1rem;
+    padding: 0.2rem 1rem;
     & .logo {
+        position: relative;
         display: grid;
         place-items: center;
+        width: 2rem;
+        height: 2rem;
         border-radius: 100%;
+        background: #ff8066;
         overflow: hidden;
         &:hover {
-            transform: scale(105%);
+            transform: scale(105%) rotate(90deg);
         }
     }
     & .social {
+        ${media.verysmall`
+            display: none;
+        `}
         & > * {
             margin: 0 2rem 0 0.5rem;
         }

@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 2000)
+        setTimeout(() => setIsLoading(false), 2500)
     }, []);
 
     return (
@@ -30,7 +30,12 @@ const GlobalStyle = createGlobalStyle`
   }
   ${media.medium`
       html {
-          font-size: 1.8rem;
+          font-size: 5vmin;
+      }
+  `}
+  ${media.large`
+      html {
+          font-size: 5vmin;
       }
   `}
 `;
