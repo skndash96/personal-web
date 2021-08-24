@@ -7,9 +7,19 @@ import { send } from "emailjs-com";
 export default function Form() {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const { noemail, nomessage, invalidemail, invalidmessage } = {
+        "noemail": "Email is required.",
+        "nomessage": "Say something.",
+        "invalidemail": "Couldnt verify a valid email.",
+        "veryshortmessage": "Say some more, I'd like to hear you."
+    }
+    
     const [formEmail, setFormEmail] = useState("");
     const [formMessage, setFormMessage] = useState("");
-    const [formErrors, setFormErrors] = useState({});
+    const [formErrors, setFormErrors] = useState({
+        email: noemail,
+        message: nomessage
+    });
 
     const handleChange = (event, field) => {
         event.preventDefault();
@@ -18,14 +28,14 @@ export default function Form() {
         setFormErrors((state) => {
             field === "email"
                 ? !value
-                    ? (state.email = "Email is required.")
+                    ? (state.email = noemail)
                     : !/^\S+@\S+\.\S+$/.test(value)
-                    ? (state.email = "Couldn't recognize an email.")
+                    ? (state.email = invalidemail)
                     : (delete state.email)
                 : !value
-                ? (state.message = "Say something.")
+                ? (state.message = nomessage)
                 : value.length < 10
-                ? (state.message ="Say more, I'd like to hear you.")
+                ? (state.message = invalidmessage)
                 : (delete state.message);
 
             return state;
