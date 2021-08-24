@@ -44,13 +44,13 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: 0.2rem 1rem;
+    padding: 0 1rem;
     & .logo {
         position: relative;
         display: grid;
         place-items: center;
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         border-radius: 100%;
         background: #ff8066;
         overflow: hidden;

@@ -179,6 +179,9 @@ const FormContainer = styled.div`
         top: 0.5rem;
         color: rgba(0, 0, 0, 0.5);
         font-size: 0.75rem;
+        ${media.medium`
+            font-size: 0.55rem;
+        `}
     }
     & input[type="submit"] {
         background: #ff8066;
