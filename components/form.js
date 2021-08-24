@@ -1,52 +1,51 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { media } from '../utils/style'
-import { FaRegClipboard } from "react-icons/fa"
-import { send } from "emailjs-com"
-                    
+import { media } from "../utils/style";
+import { FaRegClipboard, FaInfoCircle } from "react-icons/fa";
+import { send } from "emailjs-com";
+
 export default function Form() {
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const [formEmail, setFormEmail] = useState("");
     const [formMessage, setFormMessage] = useState("");
-    const [formErrors, setFormErrors] = useState({})
-    
+    const [formErrors, setFormErrors] = useState({});
+
     const handleChange = (event, field) => {
-        event.preventDefault()
-        const { value } = event.target
-        
-        setFormErrors(state => {
+        event.preventDefault();
+        const { value } = event.target;
+
+        setFormErrors((state) => {
             field === "email"
-            ? (
-                !value
-                ? state.email = "empty"
-                : !/^\S+@\S+\.\S+$/.test(value)
-                ? state.email = "invalid"
-                : state.email = null
-            )
-            : (
-                !value
-                ? state.message = "empty"
+                ? !value
+                    ? (state.email = "Email is required.")
+                    : !/^\S+@\S+\.\S+$/.test(value)
+                    ? (state.email = "Couldn't recognize an email.")
+                    : (delete state.email)
+                : !value
+                ? (state.message = "Say something.")
                 : value.length < 10
-                ? state.message = "small"
-                : state.message = null
-            )
-            
-            return state
-        })
+                ? (state.message ="Say more, I'd like to hear you.")
+                : (delete state.message);
+
+            return state;
+        });
+
+        field === "email" ? setFormEmail(value) : setFormMessage(value);
         
-        field === "email"
-        ? setFormEmail(value)
-        : setFormMessage(value)
-    }
-    
+        if(Object.keys(formErrors).length) document.querySelector("#formPopup").style.display = "none"
+    };
+
     const handleSubmit = (event) => {
-        event.preventDefault()
-        
-        if (errors.email || errors.message) return //TODO: send a popup
-        
-        setIsSubmitting(true)
-        
+        event.preventDefault();
+
+        if (formErrors.email || formErrors.messaformPopup) {
+            document.querySelector("#formPopup").style.display = "block"
+            return
+        }
+
+        setIsSubmitting(true);
+
         send(
             "service_411f074",
             "template_ofcg5sf",
@@ -56,35 +55,33 @@ export default function Form() {
             },
             "user_2TIRQjQ1Fb0fsEKmWOM6P"
         )
-        .then(() => {
-            console.log('success')
-        })
-        .catch((error) => {
-            console.log('error', error)
-        })
-        .finally(async () => {
-            await new Promise(res => setTimeout(res, 2000))
-            
-            document.querySelector("#contactForm").reset()
-            document.querySelector(".socialContainer").remove()
-            setIsSubmitting("already")
-        })
-    }
-    
+            .then(() => {
+                console.log("success");
+            })
+            .catch((error) => {
+                console.log("error", error);
+            })
+            .finally(async () => {
+                await new Promise((res) => setTimeout(res, 2000));
+
+                document.querySelector("#contactForm").reset();
+                document.querySelector(".socialContainer").remove();
+                setIsSubmitting("already");
+            });
+    };
+
     if (isSubmitting === "already") {
         return (
             <SentBox>
-                <h2>
-                    Sent!
-                </h2>
+                <h2>Sent!</h2>
             </SentBox>
-        )
+        );
     }
-    
+
     return (
         <FormContainer
             submitting={isSubmitting}
-            data={{email:formEmail, message: formMessage}}
+            data={{ email: formEmail, message: formMessage }}
             errors={formErrors}
         >
             <form id="contactForm" onSubmit={handleSubmit}>
@@ -94,9 +91,7 @@ export default function Form() {
                         className="formInput"
                         onChange={(e) => handleChange(e, "email")}
                     />
-                    <label>
-                         What&apos;s your contact email?
-                    </label>
+                    <label>What&apos;s your contact email?</label>
                 </div>
                 <div>
                     <textarea
@@ -105,11 +100,16 @@ export default function Form() {
                         className="formInput"
                         onChange={(e) => handleChange(e, "message")}
                     />
-                    <label>
-                        What&apos;s in your mind??
-                    </label>
+                    <label>What&apos;s in your mind??</label>
                 </div>
                 <div>
+                    <div
+                        id="formPopup"
+                        className="formPopup"
+                    >
+                        <FaInfoCircle />
+                        {Object.values(formErrors).filter(x => !!x)[0]}
+                    </div>
                     <input
                         onClick={handleSubmit}
                         type="submit"
@@ -126,7 +126,6 @@ const FormContainer = styled.div`
     position: relative;
     display: grid;
     place-items: center;
-    padding-bottom: 2rem;
     & div {
         position: relative;
     }
@@ -143,25 +142,33 @@ const FormContainer = styled.div`
         &:focus ~ label {
             top: -1rem;
         }
-        
+
         &[name="email"] {
-            ${({data: {email}}) => email && `
+            ${({ data: { email } }) =>
+                email &&
+                `
                 & ~ label {
                     top: -1rem;
                 }
             `}
-            ${({ errors: { email } }) => email && `
-                color: rgba(255, 25, 25);
+            ${({ errors: { email } }) =>
+                email &&
+                `
+                border-color: rgba(255, 25, 25);
             `}
         }
         &[name="message"] {
-            ${({data: {message}}) => message && `
+            ${({ data: { message } }) =>
+                message &&
+                `
                 & ~ label {
                     top: -1rem;
                 }
             `}
-            ${({ errors: { message } }) => message && `
-                color: rgba(255, 25, 25);
+            ${({ errors: { message } }) =>
+                message &&
+                `
+                border-color: rgba(255, 25, 25);
             `}
         }
     }
@@ -172,18 +179,32 @@ const FormContainer = styled.div`
         color: rgba(0, 0, 0, 0.5);
         font-size: 0.75rem;
     }
-    & input[type=submit] {
+    & input[type="submit"] {
         background: #ff8066;
         color: white;
         display: block;
         margin: 0 auto;
-        ${({errors}) => (errors.email || errors.message) && `
-             background: #ee909a;
+        ${({ errors }) =>
+            (errors.email || errors.message) &&
+            `
+            color: #cccccc;
         `}
         border: none;
         border-bottom: none;
     }
-`
+    & .formPopup {
+        display: none;
+        color: #ff909a;
+        margin-bottom: 0.5rem;
+        text-align: left;
+        font-size: 0.8rem;
+        border-radius: 10px;
+        & svg {
+            margin-right: 0.5rem;
+            transform: translateY(2px);
+        }
+    }
+`;
 
 const SentBox = styled.div`
     min-width: 50%;
@@ -201,4 +222,4 @@ const SentBox = styled.div`
         text-underline-offset: 5px;
         margin-bottom: 0.5rem;
     }
-`
+`;

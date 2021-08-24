@@ -6,6 +6,8 @@ import { media } from "../utils/style";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Form from "../components/form";
+import { FaGithub, FaFacebook, FaReddit, FaEnvelope } from 'react-icons/fa'
+import { AiFillTwitterCircle as FaTwitter } from 'react-icons/ai'
 
 export default function Main() {
     const [landscape, setLandscape] = useState(true);
@@ -78,7 +80,16 @@ export default function Main() {
                     <div className="socialContainer">
                         <Image layout="fill" src="/social.svg" />
                     </div>
+                    
                     <Form />
+                    
+                    <div className="social-links">
+                        <FaFacebook />
+                        <FaTwitter />
+                        <FaGithub />
+                        <FaReddit />
+                        <FaEnvelope />
+                    </div>
                 </div>
             </Contact>
         </Container>
@@ -89,6 +100,7 @@ const Contact = styled.div`
     position: relative;
     width: 100%;
     min-height: 75vh;
+    padding-bottom: 2rem;
     &::before {
         content: "";
         position: absolute;
@@ -113,7 +125,7 @@ const Contact = styled.div`
     }
     & .FormAndImgContainer {
         display: grid;
-        gap: 1rem;
+        gap: 2rem;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         ${media.landscape`
@@ -126,6 +138,23 @@ const Contact = styled.div`
         position: relative;
         width: 100%;
         height: 100%;
+    }
+    & .social-links {
+        display: flex;
+        margin: auto;
+        & svg {
+            margin: 0 0.75rem;
+            font-size: 1.75rem;
+            color: #e57f7f;
+        }
+        & svg:nth-child(2) {
+            transform: scale(120%);
+        }
+        & svg:last-child {
+            border-radius: 100%;
+            background-image: linear-gradient(to bottom, #e57f7f 15%, transparent 16%, transparent 70%, #e57f7f 71%);
+            transform: scale(95%);
+        }
     }
 `;
 
