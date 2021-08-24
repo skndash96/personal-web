@@ -4,7 +4,7 @@ const queries = {
     verysmall: "(max-width: 298px)",
     medium: "(min-width: 768px)",
     large: "(min-width: 992px)",
-    landscape: "(orientation: landscape) and (min-width: 768px)",
+    landscape: "(orientation: landscape) and (min-width: 512px)",
 };
 
 export const media = Object.keys(queries).reduce((all, name) => {

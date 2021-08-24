@@ -1,13 +1,11 @@
 import Head from "next/head";
-import Pencil from "../components/pencil";
 import Header from "../components/header";
+import Footer from "../components/footer";
 import styled from "styled-components";
 import { media } from "../utils/style";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Form from "../components/form";
-import { FaGithub, FaFacebook, FaReddit, FaEnvelope } from 'react-icons/fa'
-import { AiFillTwitterCircle as FaTwitter } from 'react-icons/ai'
 
 export default function Main() {
     const [landscape, setLandscape] = useState(true);
@@ -50,10 +48,6 @@ export default function Main() {
                     <span> Make it simple, not simpler. </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
-
-                <div className="model">
-                    <Pencil />
-                </div>
             </Home>
 
             <About>
@@ -80,92 +74,25 @@ export default function Main() {
                     <div className="socialContainer">
                         <Image layout="fill" src="/social.svg" />
                     </div>
-                    
+
                     <Form />
-                    
-                    <div className="social-links">
-                        <FaFacebook />
-                        <FaTwitter />
-                        <FaGithub />
-                        <FaReddit />
-                        <FaEnvelope />
-                    </div>
                 </div>
             </Contact>
+            
+            <Footer />
         </Container>
     );
 }
 
-const Contact = styled.div`
-    position: relative;
-    width: 100%;
-    min-height: 75vh;
-    padding-bottom: 2rem;
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        border-radius: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        height: 20%;
-        background: white;
-        box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
-    }
-    & h1 {
-        position: relative;
-        z-index: 50;
-        font-family: Sans-Serif;
-        text-align: center;
-        color: #ff8066;
-        -webkit-text-stroke: 1px black;
-        text-decoration: underline wavy #ff8066aa 0.2rem;
-        text-underline-offset: 5px;
-        margin-bottom: 2rem;
-    }
-    & .FormAndImgContainer {
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        ${media.landscape`
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            justify-items: start;
-        `}
-    }
-    & .socialContainer {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    & .social-links {
-        display: flex;
-        margin: auto;
-        & svg {
-            margin: 0 0.75rem;
-            font-size: 1.75rem;
-            color: #e57f7f;
-        }
-        & svg:nth-child(2) {
-            transform: scale(120%);
-        }
-        & svg:last-child {
-            border-radius: 100%;
-            background-image: linear-gradient(to bottom, #e57f7f 15%, transparent 16%, transparent 70%, #e57f7f 71%);
-            transform: scale(95%);
-        }
-    }
-`;
-
 const Home = styled.div`
     position: relative;
     width: 100%;
-    min-height: 75vh;
-    max-height: 85vh;
+    min-height: 80vh;
+    max-height: 90vh;
     background: #845ec2;
     padding: 2.5rem 0 0 2.5rem;
     ${media.landscape`
+        min-height: 75vh;
         padding: 1rem 0 0 25vw;
     `}
     & .effect {
@@ -174,18 +101,6 @@ const Home = styled.div`
         ${(props) => (props.landscape ? "right: 0;" : "left: 0;")}
         width: 25vmax;
         height: 25max;
-    }
-    & .model {
-        width: 50vw;
-        height: 75vh;
-        transform: rotate(-15deg);
-        position: absolute;
-        left: -10%;
-        bottom: -25%;
-        z-index: 50;
-        ${media.landscape`
-            bottom: -10%;
-        `}
     }
     & .text {
         position: relative;
@@ -270,6 +185,52 @@ const About = styled.div`
         margin: auto;
         margin-top: 1rem;
         border-color: #ff8066;
+    }
+`;
+
+const Contact = styled.div`
+    position: relative;
+    width: 100%;
+    min-height: 50vh;
+    padding-bottom: 2rem;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 20%;
+        background: white;
+        box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
+    }
+    & h1 {
+        position: relative;
+        z-index: 50;
+        font-family: Sans-Serif;
+        text-align: center;
+        color: #ff8066;
+        -webkit-text-stroke: 1px black;
+        text-decoration: underline wavy #ff8066aa 0.2rem;
+        text-underline-offset: 5px;
+        margin-bottom: 2rem;
+    }
+    & .FormAndImgContainer {
+        min-height: 50vh;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        ${media.landscape`
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            justify-items: start;
+        `}
+    }
+    & .socialContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
 `;
 

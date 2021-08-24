@@ -64,6 +64,10 @@ const Container = styled.div`
         `}
         & > * {
             margin: 0 2rem 0 0.5rem;
+            &:hover {
+                color: #e57f7f;
+                transform: scale(110%);
+            }
         }
     }
 `;

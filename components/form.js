@@ -8,17 +8,17 @@ export default function Form() {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { noemail, nomessage, invalidemail, invalidmessage } = {
-        "noemail": "Email is required.",
-        "nomessage": "Say something.",
-        "invalidemail": "Couldnt verify a valid email.",
-        "veryshortmessage": "Say some more, I'd like to hear you."
-    }
-    
+        noemail: "Email is required.",
+        nomessage: "Say something.",
+        invalidemail: "Couldnt verify a valid email.",
+        veryshortmessage: "Say some more, I'd like to hear you.",
+    };
+
     const [formEmail, setFormEmail] = useState("");
     const [formMessage, setFormMessage] = useState("");
     const [formErrors, setFormErrors] = useState({
         email: noemail,
-        message: nomessage
+        message: nomessage,
     });
 
     const handleChange = (event, field) => {
@@ -31,27 +31,28 @@ export default function Form() {
                     ? (state.email = noemail)
                     : !/^\S+@\S+\.\S+$/.test(value)
                     ? (state.email = invalidemail)
-                    : (delete state.email)
+                    : delete state.email
                 : !value
                 ? (state.message = nomessage)
                 : value.length < 10
                 ? (state.message = invalidmessage)
-                : (delete state.message);
+                : delete state.message;
 
             return state;
         });
 
         field === "email" ? setFormEmail(value) : setFormMessage(value);
-        
-        if(Object.keys(formErrors).length) document.querySelector("#formPopup").style.display = "none"
+
+        if (Object.keys(formErrors).length === 0)
+            document.querySelector("#formPopup").style.display = "none";
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if (formErrors.email || formErrors.messaformPopup) {
-            document.querySelector("#formPopup").style.display = "block"
-            return
+            document.querySelector("#formPopup").style.display = "block";
+            return;
         }
 
         setIsSubmitting(true);
@@ -75,7 +76,7 @@ export default function Form() {
                 await new Promise((res) => setTimeout(res, 2000));
 
                 document.querySelector("#contactForm").reset();
-                document.querySelector(".socialContainer").remove();
+                //document.querySelector(".socialContainer").remove();
                 setIsSubmitting("already");
             });
     };
@@ -97,28 +98,28 @@ export default function Form() {
             <form id="contactForm" onSubmit={handleSubmit}>
                 <div>
                     <input
+                        id="formEmail"
                         name="email"
                         className="formInput"
                         onChange={(e) => handleChange(e, "email")}
                     />
-                    <label>What&apos;s your contact email?</label>
+                    <label for="formEmail">What&apos;s your contact email?</label>
                 </div>
                 <div>
                     <textarea
-                        rows={3}
+                        rows={1}
+                        id="formMessage"
                         name="message"
                         className="formInput"
                         onChange={(e) => handleChange(e, "message")}
+                        resizable={false}
                     />
-                    <label>What&apos;s in your mind??</label>
+                    <label for="formMessage">What&apos;s in your mind??</label>
                 </div>
                 <div>
-                    <div
-                        id="formPopup"
-                        className="formPopup"
-                    >
+                    <div id="formPopup" className="formPopup">
                         <FaInfoCircle />
-                        {Object.values(formErrors).filter(x => !!x)[0]}
+                        {Object.values(formErrors).filter((x) => !!x)[0]}
                     </div>
                     <input
                         onClick={handleSubmit}
@@ -161,11 +162,6 @@ const FormContainer = styled.div`
                     top: -1rem;
                 }
             `}
-            ${({ errors: { email } }) =>
-                email &&
-                `
-                border-color: rgba(255, 25, 25);
-            `}
         }
         &[name="message"] {
             ${({ data: { message } }) =>
@@ -174,11 +170,6 @@ const FormContainer = styled.div`
                 & ~ label {
                     top: -1rem;
                 }
-            `}
-            ${({ errors: { message } }) =>
-                message &&
-                `
-                border-color: rgba(255, 25, 25);
             `}
         }
     }
@@ -219,7 +210,12 @@ const FormContainer = styled.div`
 const SentBox = styled.div`
     min-width: 50%;
     margin: auto;
+    margin-top: -0.5rem;
     padding: 0.5rem;
+    ${media.landscape`
+        margin: auto;
+        margin-left: 1rem;
+    `}
     background: #ff8066;
     & h2 {
         position: relative;

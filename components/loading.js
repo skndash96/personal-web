@@ -32,12 +32,12 @@ const logoAnim = keyframes`
     51% {
         width: 0vmax;
         height: 0vmax;
-        opacity: 0;
+        opacity: 1;
     }
     100% {
-        width: 100vmax;
-        height: 100vmax;
-        opacity: 0.25;
+        width: 75vmax;
+        height: 75vmax;
+        opacity: 0.75;
     }
 `;
 
