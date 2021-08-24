@@ -55,7 +55,7 @@ export default function Main() {
 
                 <div className="infoContainer">
                     <div className="pic">
-                        <Image layout="fill" objectFit="cover" src="/pfp.png" />
+                        <Image alt="MyImage" layout="fill" objectFit="cover" src="/pfp.png" />
                     </div>
 
                     <div className="info">
@@ -72,7 +72,7 @@ export default function Main() {
                 <h1> Let&apos;s Connect </h1>
                 <div className="FormAndImgContainer">
                     <div className="socialContainer">
-                        <Image layout="fill" src="/social.svg" />
+                        <Image alt="socialImage" layout="fill" src="/social.svg" />
                     </div>
 
                     <Form />
