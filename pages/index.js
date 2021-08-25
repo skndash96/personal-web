@@ -18,8 +18,7 @@ export default function Main({ today }) {
             <Home>
                 <div className="text">
                     <span>
-                        {" "}
-                        Make it <span> simple</span>, not simpler.{" "}
+                        I make stuff in it&apos;s <span>better</span> side.
                     </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
@@ -29,7 +28,7 @@ export default function Main({ today }) {
                         <span>dashskndash@gmail.com</span>
 
                         <div>
-                            <span>Available</span>
+                            <span>available</span>
                             <span>{today.day}</span>
                             <sup>{today.suffix}</sup>
                             <span>{today.month}</span>
@@ -102,40 +101,40 @@ export async function getServerSideProps() {
 
     switch (month) {
         case 1:
-            monthName = "JAN";
+            monthName = "jan";
             break;
         case 2:
-            monthName = "FEB";
+            monthName = "feb";
             break;
         case 3:
-            monthName = "MAR";
+            monthName = "mar";
             break;
         case 4:
-            monthName = "APR";
+            monthName = "apr";
             break;
         case 5:
-            monthName = "MAY";
+            monthName = "may";
             break;
         case 6:
-            monthName = "JUN";
+            monthName = "jun";
             break;
         case 7:
-            monthName = "JUL";
+            monthName = "jul";
             break;
         case 8:
-            monthName = "AUG";
+            monthName = "aug";
             break;
         case 9:
-            monthName = "SEP";
+            monthName = "sep";
             break;
         case 10:
-            monthName = "OCT";
+            monthName = "oct";
             break;
         case 11:
-            monthName = "NOV";
+            monthName = "nov";
             break;
         case 12:
-            monthName = "DEC";
+            monthName = "dec";
             break;
     }
 
@@ -154,9 +153,12 @@ const Home = styled.div`
     position: relative;
     width: 100%;
     min-height: 95vh;
-    ${media.landscape`min-height: 125vh`}
     background: #7a3939;
     padding: 2rem 0 0 3rem;
+    ${media.landscape`
+        min-height: 125vh;
+        padding: 1.25rem 0 0 5rem;
+    `}
     & .text {
         position: relative;
         color: white;
@@ -168,20 +170,20 @@ const Home = styled.div`
             display: block;
             position: relative;
             z-index: 55;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
         }
         & > span:nth-child(1) {
             font-weight: 700;
             font-size: 1.75rem;
             font-family: "Work Sans";
             margin-left: -2rem;
-            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         }
         & > span:nth-child(2) {
             font-weight: 500;
             font-size: 1.25rem;
             font-family: "Work Sans";
         }
-        &::before {
+        &::after {
             content: "";
             background: #ff8066;
             width: 75%;
@@ -192,8 +194,8 @@ const Home = styled.div`
             transform: translateY(100%);
             ${media.landscape`
                 width: 40vw;
-                height: 125%;
-                left: 5rem;
+                height: 100%;
+                left: 3rem;
             `}
             z-index: 54;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -202,16 +204,17 @@ const Home = styled.div`
     & .design {
         width: 65vmin;
         height: 80vmin;
+        max-height: 70vh;
         background: #5f1c1c;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        z-index: 50;
         position: absolute;
-        top: 20%;
+        top: 21%;
         right: 10%;
         ${media.landscape`
             right: 20%;
             height: 75vmin;
         `}
-        z-index: 50;
         &::after {
             content: "";
             position: absolute;
@@ -230,6 +233,7 @@ const Home = styled.div`
             height: 7.5rem;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
+            font-family: "Work Sans";
             & > * {
                 z-index: 60;
             }
@@ -243,16 +247,15 @@ const Home = styled.div`
             & div {
                 position: absolute;
                 top: 45%;
-                left: 60%;
+                left: 50%;
                 > * {
                     display: inline;
-                    color: #d8d8d8;
+                    color: #eaeaea;
                     font-size: 0.8rem;
                     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
                 }
                 & *:first-child {
                     display: block;
-                    color: #ffffffcc;
                 }
             }
         }
@@ -328,7 +331,6 @@ const About = styled.div`
 const Contact = styled.div`
     position: relative;
     width: 100%;
-    min-height: 50vh;
     padding-bottom: 2rem;
     &::before {
         content: "";
