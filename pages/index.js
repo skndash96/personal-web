@@ -159,6 +159,9 @@ const Home = styled.div`
         min-height: 125vh;
         padding: 1.25rem 0 0 5rem;
     `}
+    ${media.medium`
+        padding-top: 2.5rem;
+    `}
     & .text {
         position: relative;
         color: white;
@@ -203,17 +206,16 @@ const Home = styled.div`
     }
     & .design {
         width: 65vmin;
-        height: 80vmin;
+        height: 75vmin;
         max-height: 70vh;
         background: #5f1c1c;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         z-index: 50;
         position: absolute;
-        top: 21%;
+        top: 1.75rem;
         right: 10%;
         ${media.landscape`
             right: 20%;
-            height: 75vmin;
         `}
         &::after {
             content: "";
@@ -229,8 +231,8 @@ const Home = styled.div`
             bottom: -20%;
             ${media.landscape`bottom: -10%;`}
             left: -25%;
-            width: 7.5rem;
-            height: 7.5rem;
+            width: 25%;
+            height: 25%;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
