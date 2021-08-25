@@ -157,10 +157,7 @@ const Home = styled.div`
     padding: 2rem 0 0 3rem;
     ${media.landscape`
         min-height: 125vh;
-        padding: 1.25rem 0 0 5rem;
-    `}
-    ${media.medium`
-        padding-top: 2.5rem;
+        padding-left: 5rem;
     `}
     & .text {
         position: relative;
@@ -232,8 +229,8 @@ const Home = styled.div`
             bottom: -20%;
             ${media.landscape`bottom: -10%;`}
             left: -25%;
-            width: 10vmin;
-            height: 10vmin;
+            width: 30vmin;
+            height: 30vmin;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
