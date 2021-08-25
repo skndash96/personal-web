@@ -229,8 +229,8 @@ const Home = styled.div`
             bottom: -20%;
             ${media.landscape`bottom: -10%;`}
             left: -25%;
-            width: 30vmin;
-            height: 30vmin;
+            width: 40vmin;
+            height: 40vmin;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
