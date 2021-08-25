@@ -114,7 +114,7 @@ export default function Form() {
                         name="message"
                         className="formInput"
                         onChange={(e) => handleChange(e, "message")}
-                        resizable={false}
+                        resizable="none"
                     />
                     <label htmlFor="formMessage">
                         What&apos;s in your mind??

@@ -18,7 +18,7 @@ export default function Loading({ isLoading }) {
                     priority={true}
                     src="/logo.svg"
                     layout="fill"
-	            alt=""
+                    alt=""
                     objectFit="cover"
                 />
             </div>
@@ -32,12 +32,12 @@ const logoAnim = keyframes`
     51% {
         width: 0vmax;
         height: 0vmax;
-        opacity: 1;
+        opacity: 0.5;
     }
     100% {
-        width: 75vmax;
-        height: 75vmax;
-        opacity: 0.75;
+        width: 50vmax;
+        height: 50vmax;
+        opacity: 0.1;
     }
 `;
 
@@ -69,7 +69,7 @@ const Screen = styled.div`
             transform: translate(-50%, -50%);
             background: white;
             border-radius: 100%;
-            animation: ${logoAnim} 2s linear infinite;
+            animation: ${logoAnim} 1.25s linear infinite;
         }
     }
 `;

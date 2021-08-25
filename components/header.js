@@ -39,7 +39,8 @@ export default function Header() {
 
 const Container = styled.div`
     width: 100%;
-    background: #4b4453;
+    background: #334955;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;

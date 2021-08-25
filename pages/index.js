@@ -3,26 +3,10 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import styled from "styled-components";
 import { media } from "../utils/style";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Form from "../components/form";
 
-export default function Main() {
-    const [landscape, setLandscape] = useState(true);
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerHeight <= window.innerWidth) setLandscape(true);
-            else setLandscape(false);
-        };
-
-        handleResize();
-
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
+export default function Main({ today }) {
     return (
         <Container>
             <Head>
@@ -30,16 +14,28 @@ export default function Main() {
                 <meta name="description" content="Me a Full Stack developer" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <Header />
-
-            <Home landscape={landscape}>
+            <Home>
                 <div className="text">
-                    <span> Make it simple, not simpler. </span>
+                    <span>
+                        {" "}
+                        Make it <span> simple</span>, not simpler.{" "}
+                    </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
 
                 <div className="design">
+                    <div className="cta">
+                        <span>dashskndash@gmail.com</span>
+
+                        <div>
+                            <span>Available</span>
+                            <span>{today.day}</span>
+                            <sup>{today.suffix}</sup>
+                            <span>{today.month}</span>
+                        </div>
+                    </div>
+
                     <Image alt="bigme" src="/bigme.jpeg" layout="fill" />
                 </div>
 
@@ -47,7 +43,7 @@ export default function Main() {
             </Home>
 
             <About>
-                <h1 className="title"> Me </h1>
+                <h1 className="title"> About this guy. </h1>
 
                 <div className="infoContainer">
                     <div className="pic">
@@ -68,9 +64,8 @@ export default function Main() {
                 </div>
                 <hr />
             </About>
-
             <Contact>
-                <h1> Let&apos;s Connect </h1>
+                <h1> Write Me. </h1>
                 <div className="FormAndImgContainer">
                     <div className="socialContainer">
                         <Image
@@ -83,10 +78,76 @@ export default function Main() {
                     <Form />
                 </div>
             </Contact>
-
             <Footer />
         </Container>
     );
+}
+
+export async function getServerSideProps() {
+    const date = new Date();
+
+    const day = date.getDate();
+
+    const suffix =
+        day % 10 === 1
+            ? "st"
+            : day % 10 === 2
+            ? "nd"
+            : day % 10 === 3
+            ? "rd"
+            : "th";
+
+    const month = date.getMonth() + 1;
+    let monthName;
+
+    switch (month) {
+        case 1:
+            monthName = "JAN";
+            break;
+        case 2:
+            monthName = "FEB";
+            break;
+        case 3:
+            monthName = "MAR";
+            break;
+        case 4:
+            monthName = "APR";
+            break;
+        case 5:
+            monthName = "MAY";
+            break;
+        case 6:
+            monthName = "JUN";
+            break;
+        case 7:
+            monthName = "JUL";
+            break;
+        case 8:
+            monthName = "AUG";
+            break;
+        case 9:
+            monthName = "SEP";
+            break;
+        case 10:
+            monthName = "OCT";
+            break;
+        case 11:
+            monthName = "NOV";
+            break;
+        case 12:
+            monthName = "DEC";
+            break;
+    }
+
+    return {
+        props: {
+            today: {
+                day: day,
+                suffix: suffix,
+                month: monthName,
+            },
+        },
+    };
 }
 
 const Home = styled.div`
@@ -95,26 +156,32 @@ const Home = styled.div`
     min-height: 95vh;
     ${media.landscape`min-height: 125vh`}
     background: #7a3939;
-    padding: 2.5rem 0 0 3rem;
+    padding: 2rem 0 0 3rem;
     & .text {
         position: relative;
         color: white;
-        & span {
+        & span > span {
+            display: inline;
+            color: #fdff66;
+        }
+        & > span {
             display: block;
             position: relative;
             z-index: 55;
         }
-        & span:nth-child(1) {
+        & > span:nth-child(1) {
             font-weight: 700;
             font-size: 1.75rem;
             font-family: "Work Sans";
+            margin-left: -2rem;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         }
-        & span:nth-child(2) {
+        & > span:nth-child(2) {
             font-weight: 500;
             font-size: 1.25rem;
             font-family: "Work Sans";
         }
-        &::after {
+        &::before {
             content: "";
             background: #ff8066;
             width: 75%;
@@ -125,24 +192,26 @@ const Home = styled.div`
             transform: translateY(100%);
             ${media.landscape`
                 width: 40vw;
-                height: 100%;
+                height: 125%;
                 left: 5rem;
             `}
             z-index: 54;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
     }
-    .design {
+    & .design {
         width: 65vmin;
-        background: #5f1c1c;
         height: 80vmin;
-        position: absolute;
-        left: 25%;
+        background: #5f1c1c;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 20%;
+        right: 10%;
         ${media.landscape`
-            left: 35%;
-            transform: translateY(-5%);
+            right: 20%;
+            height: 75vmin;
         `}
+        z-index: 50;
         &::after {
             content: "";
             position: absolute;
@@ -152,16 +221,41 @@ const Home = styled.div`
             height: 100%;
             background-image: linear-gradient(to right, #5f1c1caa, transparent);
         }
-    }
-    & .line {
-        width: 100%;
-        height: 20%;
-        position: absolute;
-        bottom: 5rem;
-        left: 0;
-        ${media.landscape`
-            height: 0;
-        `}
+        & .cta {
+            position: absolute;
+            bottom: -20%;
+            ${media.landscape`bottom: -10%;`}
+            left: -25%;
+            width: 7.5rem;
+            height: 7.5rem;
+            border-radius: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            & > * {
+                z-index: 60;
+            }
+            & > span {
+                color: white;
+                position: absolute;
+                top: 25%;
+                left: 40%;
+                font-weight: 400;
+            }
+            & div {
+                position: absolute;
+                top: 45%;
+                left: 60%;
+                > * {
+                    display: inline;
+                    color: #d8d8d8;
+                    font-size: 0.8rem;
+                    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+                }
+                & *:first-child {
+                    display: block;
+                    color: #ffffffcc;
+                }
+            }
+        }
     }
 `;
 
@@ -172,7 +266,7 @@ const About = styled.div`
     background: #fefedf;
     overflowx: hidden;
     padding-left: 1rem;
-    padding-bottom: 7.5rem;
+    padding-bottom: 5rem;
     padding-right: 1.5rem;
     &::before {
         content: "";
