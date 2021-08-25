@@ -212,9 +212,10 @@ const Home = styled.div`
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         z-index: 50;
         position: absolute;
-        top: 3rem;
+        top: 20%;
         right: 10%;
         ${media.landscape`
+            top: 15%;
             right: 20%;
         `}
         &::after {
@@ -231,16 +232,8 @@ const Home = styled.div`
             bottom: -20%;
             ${media.landscape`bottom: -10%;`}
             left: -25%;
-            width: 7.5rem;
-            height: 7.5rem;
-            ${media.medium`
-                width: 10rem;
-                height: 10rem;
-            `}
-            ${media.large`
-                width: 12.5rem;
-                height: 12.5rem;
-            `}
+            width: 10vmin;
+            height: 10vmin;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
