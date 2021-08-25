@@ -103,7 +103,9 @@ export default function Form() {
                         className="formInput"
                         onChange={(e) => handleChange(e, "email")}
                     />
-                    <label htmlFor="formEmail">What&apos;s your contact email?</label>
+                    <label htmlFor="formEmail">
+                        What&apos;s your contact email?
+                    </label>
                 </div>
                 <div>
                     <textarea
@@ -114,7 +116,9 @@ export default function Form() {
                         onChange={(e) => handleChange(e, "message")}
                         resizable={false}
                     />
-                    <label htmlFor="formMessage">What&apos;s in your mind??</label>
+                    <label htmlFor="formMessage">
+                        What&apos;s in your mind??
+                    </label>
                 </div>
                 <div>
                     <div id="formPopup" className="formPopup">

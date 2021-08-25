@@ -18,7 +18,7 @@ export default function Loading({ isLoading }) {
                     priority={true}
                     src="/logo.svg"
                     layout="fill"
-                    alt="logo"
+	            alt=""
                     objectFit="cover"
                 />
             </div>

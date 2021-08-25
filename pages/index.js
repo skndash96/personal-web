@@ -34,20 +34,16 @@ export default function Main() {
             <Header />
 
             <Home landscape={landscape}>
-                <div>
-                    <img
-                        alt="Effect"
-                        className="effect"
-                        src={
-                            landscape ? "/effect_right.svg" : "/effect_left.svg"
-                        }
-                    />
-                </div>
-
                 <div className="text">
                     <span> Make it simple, not simpler. </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
+
+                <div className="design">
+                    <Image alt="bigme" src="/bigme.jpeg" layout="fill" />
+                </div>
+
+                {/*TODO: a scribble line*/}
             </Home>
 
             <About>
@@ -55,7 +51,12 @@ export default function Main() {
 
                 <div className="infoContainer">
                     <div className="pic">
-                        <Image alt="MyImage" layout="fill" objectFit="cover" src="/pfp.png" />
+                        <Image
+                            alt="MyImage"
+                            layout="fill"
+                            objectFit="cover"
+                            src="/pfp.png"
+                        />
                     </div>
 
                     <div className="info">
@@ -72,13 +73,17 @@ export default function Main() {
                 <h1> Let&apos;s Connect </h1>
                 <div className="FormAndImgContainer">
                     <div className="socialContainer">
-                        <Image alt="socialImage" layout="fill" src="/social.svg" />
+                        <Image
+                            alt="socialImage"
+                            layout="fill"
+                            src="/social.svg"
+                        />
                     </div>
 
                     <Form />
                 </div>
             </Contact>
-            
+
             <Footer />
         </Container>
     );
@@ -87,27 +92,17 @@ export default function Main() {
 const Home = styled.div`
     position: relative;
     width: 100%;
-    min-height: 80vh;
-    max-height: 90vh;
-    background: #845ec2;
-    padding: 2.5rem 0 0 2.5rem;
-    ${media.landscape`
-        min-height: 75vh;
-        padding: 1rem 0 0 25vw;
-    `}
-    & .effect {
-        position: absolute;
-        top: 0;
-        ${(props) => (props.landscape ? "right: 0;" : "left: 0;")}
-        width: 25vmax;
-        height: 25max;
-    }
+    min-height: 95vh;
+    ${media.landscape`min-height: 125vh`}
+    background: #7a3939;
+    padding: 2.5rem 0 0 3rem;
     & .text {
         position: relative;
-        z-index: 50;
         color: white;
         & span {
             display: block;
+            position: relative;
+            z-index: 55;
         }
         & span:nth-child(1) {
             font-weight: 700;
@@ -119,6 +114,54 @@ const Home = styled.div`
             font-size: 1.25rem;
             font-family: "Work Sans";
         }
+        &::after {
+            content: "";
+            background: #ff8066;
+            width: 75%;
+            height: 75%;
+            position: absolute;
+            bottom: 2rem;
+            left: -1rem;
+            transform: translateY(100%);
+            ${media.landscape`
+                width: 40vw;
+                height: 100%;
+                left: 5rem;
+            `}
+            z-index: 54;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+    .design {
+        width: 65vmin;
+        background: #5f1c1c;
+        height: 80vmin;
+        position: absolute;
+        left: 25%;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        ${media.landscape`
+            left: 35%;
+            transform: translateY(-5%);
+        `}
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, #5f1c1caa, transparent);
+        }
+    }
+    & .line {
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        bottom: 5rem;
+        left: 0;
+        ${media.landscape`
+            height: 0;
+        `}
     }
 `;
 
@@ -139,7 +182,7 @@ const About = styled.div`
         width: 100%;
         height: 20%;
         background: #fefedf;
-        transform: translateY(-50%) skewY(4deg);
+        transform: translateY(-50%) skewY(3deg);
     }
     & .title {
         position: relative;
@@ -158,7 +201,7 @@ const About = styled.div`
             position: relative;
             width: 30vmax;
             height: 30vmax;
-            background: #00c9a7;
+            background: #a8aa83;
             border-radius: 100%;
             overflow: hidden;
             margin: auto;

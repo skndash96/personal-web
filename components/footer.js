@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import { FaGithub, FaFacebook, FaReddit, FaEnvelope } from "react-icons/fa";
 import { AiFillTwitterCircle as FaTwitter } from "react-icons/ai";
 
@@ -9,7 +9,7 @@ export default function Footer() {
                 <h2> S. Dash Skndash </h2>
                 <h5> Full stack Developer </h5>
             </div>
-            
+
             <div className="social-links">
                 <FaFacebook />
                 <FaTwitter />
@@ -18,7 +18,7 @@ export default function Footer() {
                 <FaEnvelope />
             </div>
         </Container>
-    )
+    );
 }
 
 const Container = styled.div`
@@ -73,4 +73,4 @@ const Container = styled.div`
             }
         }
     }
-`
+`;
