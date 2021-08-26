@@ -18,7 +18,7 @@ export default function Main({ today }) {
             <Home>
                 <div className="text">
                     <span>
-                        I make stuff in it&apos;s <span>better</span> side.
+                        I make stuff in it&apos;s <span>better</span> way.
                     </span>
                     <span> I&apos;m Dash Skndash. </span>
                 </div>
@@ -197,14 +197,17 @@ const Home = styled.div`
                 height: 100%;
                 left: 3rem;
             `}
+            ${media.medium`
+                height: 150%;
+            `}
             z-index: 54;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
     }
     & .design {
         width: 65vmin;
-        height: 75vmin;
-        max-height: 70vh;
+        height: 80vmin;
+        max-height: 75vh;
         background: #5f1c1c;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         z-index: 50;
@@ -226,19 +229,19 @@ const Home = styled.div`
         }
         & .cta {
             position: absolute;
-            bottom: -20%;
+            bottom: -25%;
             ${media.landscape`bottom: -10%;`}
-            left: -25%;
+            left: -30%;
             width: 40vmin;
             height: 40vmin;
             border-radius: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid #ffffffcc;
             font-family: "Work Sans";
             & > * {
                 z-index: 60;
             }
             & > span {
-                color: white;
+                color: #90ee90;
                 position: absolute;
                 top: 25%;
                 left: 40%;
@@ -249,8 +252,8 @@ const Home = styled.div`
                 top: 45%;
                 left: 50%;
                 > * {
+                    color: #80ce80;
                     display: inline;
-                    color: #eaeaea;
                     font-size: 0.8rem;
                     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
                 }

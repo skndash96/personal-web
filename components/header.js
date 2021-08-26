@@ -39,13 +39,13 @@ export default function Header() {
 
 const Container = styled.div`
     width: 100%;
-    background: #334955;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background: #6a1919;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     padding: 0 1rem;
+    z-index: 9999;
     & .logo {
         position: relative;
         display: grid;
