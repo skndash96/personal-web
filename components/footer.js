@@ -22,7 +22,7 @@ export default function Footer() {
 }
 
 const Container = styled.div`
-    background: ${({theme}) => theme.grey};
+    background: ${({ theme }) => theme.grey};
     width: 100%;
     min-height: 20vh;
     padding: 1rem;
@@ -34,18 +34,18 @@ const Container = styled.div`
         text-align: center;
     }
     & h2 {
-        color: ${({theme}) => theme.white};
+        color: ${({ theme }) => theme.white};
     }
     & h5 {
-        color: ${({theme}) => theme.lightgrey};
+        color: ${({ theme }) => theme.lightgrey};
     }
     & .social-links {
         & svg {
             margin: 0 0.75rem;
             font-size: 1.75rem;
-            color: ${({theme}) => theme.pink};
+            color: ${({ theme }) => theme.pink};
             &:hover {
-                color: ${({theme}) => theme.white};
+                color: ${({ theme }) => theme.white};
             }
         }
         & svg:nth-child(2) {
@@ -69,7 +69,7 @@ const Container = styled.div`
                     transparent 70%,
                     white 71%
                 );
-                color: ${({theme}) => theme.white};
+                color: ${({ theme }) => theme.white};
             }
         }
     }

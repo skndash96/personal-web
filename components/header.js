@@ -39,11 +39,11 @@ export default function Header() {
 
 const Container = styled.div`
     width: 100%;
-    background: ${({theme}) => theme.darkmaroon};
+    background: ${({ theme }) => theme.darkmaroon};
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: ${({theme}) => theme.white};
+    color: ${({ theme }) => theme.white};
     padding: 0 1rem;
     z-index: 9999;
     & .logo {
@@ -53,7 +53,7 @@ const Container = styled.div`
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 100%;
-        background: ${({theme}) => theme.orange};
+        background: ${({ theme }) => theme.orange};
         overflow: hidden;
         &:hover {
             transform: scale(105%) rotate(90deg);
@@ -67,7 +67,7 @@ const Container = styled.div`
         & > * {
             margin: 0 2rem 0 0.5rem;
             &:hover {
-                color: ${({theme}) => theme.pink};
+                color: ${({ theme }) => theme.pink};
                 transform: scale(120%);
             }
         }
@@ -79,12 +79,12 @@ const NavBar = styled.div`
     transform: translateY(1rem);
     display: flex;
     flex-direction: column;
-    background: ${({theme}) => theme.grey};
+    background: ${({ theme }) => theme.grey};
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(0, 0, 0, 0.2);
     padding: 0 0.6rem;
     border-radius: 100%;
     font-size: 1.25rem;
-    color: ${({theme}) => theme.yellow};
+    color: ${({ theme }) => theme.yellow};
     & svg:nth-child(1) {
         transform: ${(props) =>
             props.active ? "translateY(0.75rem)" : "translateY(0)"};

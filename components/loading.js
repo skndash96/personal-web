@@ -49,15 +49,15 @@ const Screen = styled.div`
     width: 100vw;
     display: grid;
     place-items: center;
-    background: ${({theme}) => theme.grey};
-    color: ${({theme}) => theme.white};
+    background: ${({ theme }) => theme.grey};
+    color: ${({ theme }) => theme.white};
     overflow: hidden;
     transform: translateY(${({ isLoading }) => (isLoading ? "0%" : "-100%")});
     & .logo {
         position: relative;
         width: 10vmax;
         height: 10vmax;
-        background: ${({theme}) => theme.orange};
+        background: ${({ theme }) => theme.orange};
         border-radius: 100%;
         transform: translateY(-50%);
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);

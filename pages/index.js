@@ -40,13 +40,11 @@ export default function Main({ today }) {
 
                 {/*TODO: a scribble line*/}
             </Home>
-            
+
             <Builds>
-                <h1 className="title">
-                    My works
-                </h1>
+                <h1 className="title">My works</h1>
             </Builds>
-            
+
             <About>
                 <h1 className="title"> About me. </h1>
 
@@ -157,15 +155,15 @@ export async function getServerSideProps() {
 
 const Builds = styled.div`
     min-height: 90vh;
-    background: ${({theme}) => theme.yellow};
+    background: ${({ theme }) => theme.yellow};
     padding: 2rem;
-`
+`;
 
 const Home = styled.div`
     position: relative;
     width: 100%;
     min-height: 95vh;
-    background: ${({theme}) => theme.maroon};
+    background: ${({ theme }) => theme.maroon};
     padding: 2rem 0 0 3rem;
     ${media.landscape`
         min-height: 125vh;
@@ -173,10 +171,10 @@ const Home = styled.div`
     `}
     & .text {
         position: relative;
-        color: ${({theme}) => theme.white};
+        color: ${({ theme }) => theme.white};
         & span > span {
             display: inline;
-            color: ${({theme}) => theme.yellow};
+            color: ${({ theme }) => theme.yellow};
         }
         & > span {
             display: block;
@@ -197,7 +195,7 @@ const Home = styled.div`
         }
         &::after {
             content: "";
-            background: ${({theme}) => theme.orange};
+            background: ${({ theme }) => theme.orange};
             width: 75%;
             height: 75%;
             position: absolute;
@@ -235,7 +233,11 @@ const Home = styled.div`
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to right, ${({theme}) => theme.maroon}ac, transparent);
+            background-image: linear-gradient(
+                to right,
+                ${({ theme }) => theme.maroon}ac,
+                transparent
+            );
         }
         & .cta {
             position: absolute;
@@ -251,7 +253,7 @@ const Home = styled.div`
                 z-index: 60;
             }
             & > span {
-                color: ${({theme}) => theme.lightgreen};
+                color: ${({ theme }) => theme.lightgreen};
                 position: absolute;
                 top: 25%;
                 left: 40%;
@@ -262,7 +264,7 @@ const Home = styled.div`
                 top: 45%;
                 left: 50%;
                 > * {
-                    color: ${({theme}) => theme.green};
+                    color: ${({ theme }) => theme.green};
                     display: inline;
                     font-size: 0.8rem;
                     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
@@ -279,15 +281,15 @@ const About = styled.div`
     position: relative;
     width: 100%;
     min-height: 75vh;
-    background: ${({theme}) => theme.blue};
+    background: ${({ theme }) => theme.blue};
     overflowx: hidden;
     padding-left: 1rem;
     padding-bottom: 5rem;
     padding-right: 1.5rem;
-    color: ${({theme}) => theme.white};
+    color: ${({ theme }) => theme.white};
     & .title {
-       color: ${({theme}) => theme.yellow} !important ;
-       text-decoration-color: ${({theme}) => theme.yellow} !important ;
+        color: ${({ theme }) => theme.yellow} !important ;
+        text-decoration-color: ${({ theme }) => theme.yellow} !important ;
     }
     &::before {
         content: "";
@@ -296,7 +298,7 @@ const About = styled.div`
         left: 0;
         width: 100%;
         height: 20%;
-        background: ${({theme}) => theme.blue};
+        background: ${({ theme }) => theme.blue};
         transform: translateY(-50%) skewY(3deg);
     }
     & .infoContainer {
@@ -305,7 +307,7 @@ const About = styled.div`
             position: relative;
             width: 30vmax;
             height: 30vmax;
-            background: ${({theme}) => theme.lightyellow};
+            background: ${({ theme }) => theme.lightyellow};
             border-radius: 100%;
             overflow: hidden;
             margin: auto;
@@ -331,7 +333,7 @@ const About = styled.div`
         width: 80%;
         margin: auto;
         margin-top: 1rem;
-        border-color: ${({theme}) => theme.yellow};
+        border-color: ${({ theme }) => theme.yellow};
     }
 `;
 
@@ -339,7 +341,7 @@ const Contact = styled.div`
     position: relative;
     width: 100%;
     padding-bottom: 2rem;
-    background: ${({theme}) => theme.white};
+    background: ${({ theme }) => theme.white};
     &::before {
         content: "";
         position: absolute;
@@ -348,7 +350,7 @@ const Contact = styled.div`
         transform: translateY(-50%);
         width: 100%;
         height: 20%;
-        background: ${({theme}) => theme.white};
+        background: ${({ theme }) => theme.white};
         box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
     }
     & .FormAndImgContainer {

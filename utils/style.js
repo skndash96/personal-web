@@ -29,5 +29,5 @@ export const theme = {
     blue: "#009FB7",
     grey: "#4B4453",
     lightgrey: "#D3D3D3",
-    white: "#FFFFFF"
-}
+    white: "#FFFFFF",
+};
