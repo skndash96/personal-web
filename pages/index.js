@@ -40,9 +40,15 @@ export default function Main({ today }) {
 
                 {/*TODO: a scribble line*/}
             </Home>
-
+            
+            <Builds>
+                <h1 className="title">
+                    My works
+                </h1>
+            </Builds>
+            
             <About>
-                <h1 className="title"> About this guy. </h1>
+                <h1 className="title"> About me. </h1>
 
                 <div className="infoContainer">
                     <div className="pic">
@@ -64,7 +70,7 @@ export default function Main({ today }) {
                 <hr />
             </About>
             <Contact>
-                <h1> Write Me. </h1>
+                <h1 className="title"> Write Me. </h1>
                 <div className="FormAndImgContainer">
                     <div className="socialContainer">
                         <Image
@@ -149,11 +155,17 @@ export async function getServerSideProps() {
     };
 }
 
+const Builds = styled.div`
+    min-height: 90vh;
+    background: ${({theme}) => theme.yellow};
+    padding: 2rem;
+`
+
 const Home = styled.div`
     position: relative;
     width: 100%;
     min-height: 95vh;
-    background: #7a3939;
+    background: ${({theme}) => theme.maroon};
     padding: 2rem 0 0 3rem;
     ${media.landscape`
         min-height: 125vh;
@@ -161,10 +173,10 @@ const Home = styled.div`
     `}
     & .text {
         position: relative;
-        color: white;
+        color: ${({theme}) => theme.white};
         & span > span {
             display: inline;
-            color: #fdff66;
+            color: ${({theme}) => theme.yellow};
         }
         & > span {
             display: block;
@@ -185,7 +197,7 @@ const Home = styled.div`
         }
         &::after {
             content: "";
-            background: #ff8066;
+            background: ${({theme}) => theme.orange};
             width: 75%;
             height: 75%;
             position: absolute;
@@ -207,17 +219,15 @@ const Home = styled.div`
     & .design {
         width: 65vmin;
         height: 80vmin;
-        max-height: 75vh;
-        background: #5f1c1c;
+        max-height: 65%;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         z-index: 50;
         position: absolute;
         top: 20%;
         right: 10%;
-        ${media.landscape`
-            top: 15%;
-            right: 20%;
-        `}
+        ${media.landscape`right: 20%;`}
+        ${media.medium`right: 25%;`}
+        ${media.large`right: 30%;`}
         &::after {
             content: "";
             position: absolute;
@@ -225,7 +235,7 @@ const Home = styled.div`
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(to right, #5f1c1caa, transparent);
+            background-image: linear-gradient(to right, ${({theme}) => theme.maroon}ac, transparent);
         }
         & .cta {
             position: absolute;
@@ -235,13 +245,13 @@ const Home = styled.div`
             width: 40vmin;
             height: 40vmin;
             border-radius: 100%;
-            border: 1px solid #ffffffcc;
+            border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
             & > * {
                 z-index: 60;
             }
             & > span {
-                color: #90ee90;
+                color: ${({theme}) => theme.lightgreen};
                 position: absolute;
                 top: 25%;
                 left: 40%;
@@ -252,7 +262,7 @@ const Home = styled.div`
                 top: 45%;
                 left: 50%;
                 > * {
-                    color: #80ce80;
+                    color: ${({theme}) => theme.green};
                     display: inline;
                     font-size: 0.8rem;
                     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
@@ -269,11 +279,16 @@ const About = styled.div`
     position: relative;
     width: 100%;
     min-height: 75vh;
-    background: #fefedf;
+    background: ${({theme}) => theme.blue};
     overflowx: hidden;
     padding-left: 1rem;
     padding-bottom: 5rem;
     padding-right: 1.5rem;
+    color: ${({theme}) => theme.white};
+    & .title {
+       color: ${({theme}) => theme.yellow} !important ;
+       text-decoration-color: ${({theme}) => theme.yellow} !important ;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -281,19 +296,8 @@ const About = styled.div`
         left: 0;
         width: 100%;
         height: 20%;
-        background: #fefedf;
+        background: ${({theme}) => theme.blue};
         transform: translateY(-50%) skewY(3deg);
-    }
-    & .title {
-        position: relative;
-        z-index: 50;
-        font-family: Sans-Serif;
-        text-align: center;
-        color: #ff8066;
-        -webkit-text-stroke: 1px black;
-        text-decoration: underline wavy #ff8066aa 0.2rem;
-        text-underline-offset: 5px;
-        margin-bottom: 2rem;
     }
     & .infoContainer {
         display: grid;
@@ -301,7 +305,7 @@ const About = styled.div`
             position: relative;
             width: 30vmax;
             height: 30vmax;
-            background: #a8aa83;
+            background: ${({theme}) => theme.lightyellow};
             border-radius: 100%;
             overflow: hidden;
             margin: auto;
@@ -327,7 +331,7 @@ const About = styled.div`
         width: 80%;
         margin: auto;
         margin-top: 1rem;
-        border-color: #ff8066;
+        border-color: ${({theme}) => theme.yellow};
     }
 `;
 
@@ -335,6 +339,7 @@ const Contact = styled.div`
     position: relative;
     width: 100%;
     padding-bottom: 2rem;
+    background: ${({theme}) => theme.white};
     &::before {
         content: "";
         position: absolute;
@@ -343,19 +348,8 @@ const Contact = styled.div`
         transform: translateY(-50%);
         width: 100%;
         height: 20%;
-        background: white;
+        background: ${({theme}) => theme.white};
         box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
-    }
-    & h1 {
-        position: relative;
-        z-index: 50;
-        font-family: Sans-Serif;
-        text-align: center;
-        color: #ff8066;
-        -webkit-text-stroke: 1px black;
-        text-decoration: underline wavy #ff8066aa 0.2rem;
-        text-underline-offset: 5px;
-        margin-bottom: 2rem;
     }
     & .FormAndImgContainer {
         min-height: 50vh;
@@ -379,4 +373,15 @@ const Contact = styled.div`
 const Container = styled.div`
     position: relative;
     width: 100%;
+    & .title {
+        position: relative;
+        z-index: 50;
+        font-family: Sans-Serif;
+        text-align: center;
+        color: #ff8066;
+        -webkit-text-stroke: 1px black;
+        text-decoration: underline wavy #ff8066aa 0.2rem;
+        text-underline-offset: 5px;
+        margin-bottom: 2rem;
+    }
 `;

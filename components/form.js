@@ -149,9 +149,9 @@ const FormContainer = styled.div`
         padding: 0.5rem;
         outline: none;
         border: none;
-        border-bottom: 2px solid #ff8066;
+        border-bottom: 2px solid ${({theme}) => theme.orange};
         ${media.landscape`
-            border-left: 2px solid #ff8066;
+            border-left: 2px solid ${({theme}) => theme.orange};
         `}
         margin-bottom: 1.5rem;
         &:focus ~ label {
@@ -188,21 +188,21 @@ const FormContainer = styled.div`
         `}
     }
     & input[type="submit"] {
-        background: #ff8066;
-        color: white;
+        background: ${({theme}) => theme.orange};
+        color: ${({theme}) => theme.white};
         display: block;
         margin: 0 auto;
         ${({ errors }) =>
             (errors.email || errors.message) &&
             `
-            color: #cccccc;
+            color: ${({theme}) => theme.lightgrey};
         `}
         border: none;
         border-bottom: none;
     }
     & .formPopup {
         display: none;
-        color: #ff909a;
+        color: ${({theme}) => theme.pink};
         margin-bottom: 0.5rem;
         text-align: left;
         font-size: 0.8rem;
@@ -223,15 +223,15 @@ const SentBox = styled.div`
         margin: auto;
         margin-left: 1rem;
     `}
-    background: #ff8066;
+    background: ${({theme}) => theme.orange};
     & h2 {
         position: relative;
         z-index: 50;
         font-family: Sans-Serif;
         text-align: center;
-        color: #ff8066;
-        -webkit-text-stroke: 1.25px white;
-        text-decoration: underline wavy #ffffff 0.2rem;
+        color: ${({theme}) => theme.orange};
+        -webkit-text-stroke: 1.25px ${({theme}) => theme.white};
+        text-decoration: underline wavy ${({theme}) => theme.white} 0.2rem;
         text-underline-offset: 5px;
         margin-bottom: 0.5rem;
     }

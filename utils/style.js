@@ -15,3 +15,19 @@ export const media = Object.keys(queries).reduce((all, name) => {
     `;
     return all;
 }, {});
+
+export const theme = {
+    black: "#000000",
+    maroon: "#7A3939",
+    darkmaroon: "#4f1f1f",
+    pink: "#E57F7F",
+    orange: "#FF8066",
+    yellow: "#FED766",
+    lightyellow: "#F3EED9",
+    green: "#90EE90",
+    lightgreen: "#80CE80",
+    blue: "#009FB7",
+    grey: "#4B4453",
+    lightgrey: "#D3D3D3",
+    white: "#FFFFFF"
+}

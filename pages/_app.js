@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { media } from "../utils/style";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { theme, media } from "../utils/style";
 import { useState, useEffect } from "react";
 import Loading from "../components/loading";
 
@@ -11,11 +11,11 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Loading isLoading={isLoading} />
             <Component {...pageProps} />
-        </>
+        </ThemeProvider>
     );
 }
 
