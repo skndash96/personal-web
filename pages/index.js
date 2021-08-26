@@ -42,7 +42,7 @@ export default function Main({ today }) {
             </Home>
 
             <Builds>
-                <h1 className="title">My works</h1>
+                <h1 className="title">Builds</h1>
             </Builds>
 
             <About>
@@ -154,7 +154,7 @@ export async function getServerSideProps() {
 }
 
 const Builds = styled.div`
-    min-height: 90vh;
+    min-height: 100vh;
     background: ${({ theme }) => theme.yellow};
     padding: 2rem;
 `;
@@ -162,7 +162,7 @@ const Builds = styled.div`
 const Home = styled.div`
     position: relative;
     width: 100%;
-    min-height: 95vh;
+    min-height: 100vh;
     background: ${({ theme }) => theme.maroon};
     padding: 2rem 0 0 3rem;
     ${media.landscape`
@@ -204,11 +204,7 @@ const Home = styled.div`
             transform: translateY(100%);
             ${media.landscape`
                 width: 40vw;
-                height: 100%;
                 left: 3rem;
-            `}
-            ${media.medium`
-                height: 150%;
             `}
             z-index: 54;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -223,9 +219,10 @@ const Home = styled.div`
         position: absolute;
         top: 20%;
         right: 10%;
-        ${media.landscape`right: 20%;`}
-        ${media.medium`right: 25%;`}
-        ${media.large`right: 30%;`}
+        ${media.medium`
+            right: 15%;
+            top: 25%;
+        `}
         &::after {
             content: "";
             position: absolute;
@@ -244,8 +241,8 @@ const Home = styled.div`
             bottom: -25%;
             ${media.landscape`bottom: -10%;`}
             left: -30%;
-            width: 40vmin;
-            height: 40vmin;
+            width: 35vmin;
+            height: 35vmin;
             border-radius: 100%;
             border: 1px solid rgba(255, 255, 255, 0.6);
             font-family: "Work Sans";
@@ -280,7 +277,6 @@ const Home = styled.div`
 const About = styled.div`
     position: relative;
     width: 100%;
-    min-height: 75vh;
     background: ${({ theme }) => theme.blue};
     overflowx: hidden;
     padding-left: 1rem;
@@ -354,7 +350,6 @@ const Contact = styled.div`
         box-shadow: 0 -10px 5px 2px rgba(0, 0, 0, 0.025);
     }
     & .FormAndImgContainer {
-        min-height: 50vh;
         display: grid;
         gap: 2rem;
         grid-template-columns: 1fr;

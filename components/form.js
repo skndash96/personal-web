@@ -145,7 +145,8 @@ const FormContainer = styled.div`
         position: relative;
     }
     & .formInput {
-        min-width: 250px;
+        font-size: 1rem;
+        width: 100%;
         padding: 0.5rem;
         outline: none;
         border: none;
@@ -182,10 +183,7 @@ const FormContainer = styled.div`
         left: 0.5rem;
         top: 0.5rem;
         color: rgba(0, 0, 0, 0.5);
-        font-size: 0.75rem;
-        ${media.medium`
-            font-size: 0.55rem;
-        `}
+        font-size: 0.65rem;
     }
     & input[type="submit"] {
         background: ${({ theme }) => theme.orange};
