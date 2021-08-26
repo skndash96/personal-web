@@ -37,8 +37,6 @@ export default function Main({ today }) {
 
                     <Image alt="bigme" src="/bigme.jpeg" layout="fill" />
                 </div>
-
-                {/*TODO: a scribble line*/}
             </Home>
 
             <Builds>
@@ -154,23 +152,36 @@ export async function getServerSideProps() {
 }
 
 const Builds = styled.div`
+    position: relative;
     min-height: 100vh;
     background: ${({ theme }) => theme.yellow};
-    padding: 2rem;
+    padding: 0 2rem;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        transform: skewY(-3deg) translateY(-30%);
+        background: ${({ theme }) => theme.yellow};
+    }
 `;
 
 const Home = styled.div`
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
     background: ${({ theme }) => theme.maroon};
-    padding: 2rem 0 0 3rem;
-    ${media.landscape`
-        min-height: 125vh;
-        padding-left: 5rem;
-    `}
     & .text {
         position: relative;
+        height: 100%;
         color: ${({ theme }) => theme.white};
         & span > span {
             display: inline;
@@ -179,19 +190,17 @@ const Home = styled.div`
         & > span {
             display: block;
             position: relative;
-            z-index: 55;
+            font-family: "Work Sans";
             text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+            z-index: 55;
         }
         & > span:nth-child(1) {
             font-weight: 700;
             font-size: 1.75rem;
-            font-family: "Work Sans";
-            margin-left: -2rem;
         }
         & > span:nth-child(2) {
             font-weight: 500;
             font-size: 1.25rem;
-            font-family: "Work Sans";
         }
         &::after {
             content: "";
@@ -199,9 +208,8 @@ const Home = styled.div`
             width: 75%;
             height: 75%;
             position: absolute;
-            bottom: 2rem;
-            left: -1rem;
-            transform: translateY(100%);
+            bottom: -35%;
+            left: 10%;
             ${media.landscape`
                 width: 40vw;
                 left: 3rem;
@@ -211,18 +219,14 @@ const Home = styled.div`
         }
     }
     & .design {
+        align-self: flex-end;
+        ${media.landscape`transform: translateX(-50%);`}
+        position: relative;
         width: 65vmin;
         height: 80vmin;
         max-height: 65%;
         box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         z-index: 50;
-        position: absolute;
-        top: 20%;
-        right: 10%;
-        ${media.medium`
-            right: 15%;
-            top: 25%;
-        `}
         &::after {
             content: "";
             position: absolute;
@@ -250,20 +254,21 @@ const Home = styled.div`
                 z-index: 60;
             }
             & > span {
-                color: ${({ theme }) => theme.lightgreen};
+                color: ${({ theme }) => theme.yellow};
                 position: absolute;
                 top: 25%;
                 left: 40%;
                 font-weight: 400;
+                font-size: 1.15rem;
             }
             & div {
                 position: absolute;
                 top: 45%;
                 left: 50%;
                 > * {
-                    color: ${({ theme }) => theme.green};
+                    color: ${({ theme }) => theme.lightyellow};
                     display: inline;
-                    font-size: 0.8rem;
+                    font-size: 0.75rem;
                     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
                 }
                 & *:first-child {
@@ -278,7 +283,6 @@ const About = styled.div`
     position: relative;
     width: 100%;
     background: ${({ theme }) => theme.blue};
-    overflowx: hidden;
     padding-left: 1rem;
     padding-bottom: 5rem;
     padding-right: 1.5rem;

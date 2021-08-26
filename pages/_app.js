@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { theme, media } from "../utils/style";
 import { useState, useEffect } from "react";
@@ -11,11 +12,20 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Loading isLoading={isLoading} />
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                />
+            </Head>
+
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <Loading isLoading={isLoading} />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </>
     );
 }
 
@@ -25,17 +35,22 @@ const GlobalStyle = createGlobalStyle`
   * {
       margin: 0;
       padding: 0;
-      transition: all 0.15s ease;
       box-sizing: border-box;
+  }
+  svg {
+      transition: all 0.15s ease;
+  }
+  html {
+      font-size: 16px;
   }
   ${media.medium`
       html {
-          font-size: 5vmin;
+          font-size: 32px;
       }
   `}
   ${media.large`
       html {
-          font-size: 5vmin;
+          font-size: 46px;
       }
   `}
 `;
