@@ -41,16 +41,6 @@ const GlobalStyle = createGlobalStyle`
       transition: all 0.15s ease;
   }
   html {
-      font-size: 16px;
+      font-size: calc(0.5rem + 2.5vmin);
   }
-  ${media.medium`
-      html {
-          font-size: 32px;
-      }
-  `}
-  ${media.large`
-      html {
-          font-size: 46px;
-      }
-  `}
 `;
