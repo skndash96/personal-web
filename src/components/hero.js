@@ -15,11 +15,10 @@ const Container = styled.div`
     width: 100%;
     min-height: 100vh;
     background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(0, 0, 0, 0.5)
+        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, .75)
     ), url(
-        https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyereVMWGNK7SSosml0ZzOFOw486WCEdqO9A&usqp=CAU
+        https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU
     );
     background-repeat: no-repeat;
     background-position: center;

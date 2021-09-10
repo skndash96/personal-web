@@ -26,17 +26,20 @@ const Container = styled.div`
     display: grid;
     place-items: center;
     gap: 2rem;
-    padding: 4rem 0;
-    background: var(--black);
+    padding: 0 0 4rem 0;
+    background: var(--blue);
     color: var(--white);
     position: relative;
+    & > * {
+        z-index: 9;
+    }
     .about-title {
         font-family: "Work Sans";
     }
     .about-pic {
         width: 10rem;
         height: 10rem;
-        background: rgba(255, 255, 255, .2);
+        background: rgba(0, 0, 0, .2);
         border-radius: 50%;
         overflow: hidden;
     }
@@ -48,8 +51,8 @@ const Container = styled.div`
     }
     .cta {
         padding: .5rem 1rem;
-        background: var(--blue);
-        color: var(--white);
+        background: var(--white);
+        color: var(--blue);
         border-radius: .5rem;
         font-weight: 700;
         transform: scale(1);
@@ -60,11 +63,21 @@ const Container = styled.div`
             left: 2px;
             right: 2px;
             bottom: 2px;
-            border: 1px solid var(--white);
+            border: 1px solid var(--blue);
             border-radius: inherit;
         }
         &:hover {
             transform: scale(105%);
         }
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 7.5rem;
+        background: var(--blue);
+        transform: skewY(-3deg) translateY(-30%);
     }
 `

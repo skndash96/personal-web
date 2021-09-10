@@ -5,6 +5,7 @@ import {
 import Hero from './components/hero'
 import Builds from './components/builds'
 import About from './components/about'
+import Contact from './components/contact'
 
 export default function App() {
     return (
@@ -12,15 +13,17 @@ export default function App() {
             <GlobalStyle />
             <main>
                 <Hero />
-                <Builds />
                 <About />
+                <Builds />
+                <Contact />
             </main>
         </Wrapper>
     );
 }
 
 const Wrapper = styled.div`
-    --blue: #4083df;
+    --contrast: #2128a6;
+    --blue: #3498de;
     --white: #ffffff;
     --black: #000000;
     

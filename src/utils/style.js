@@ -52,10 +52,10 @@ export const GlobalStyle = createGlobalStyle`
             height: 1rem;
             background: rgba(25, 25, 25, .2);
         }
-        &:active {
+        &:active, &.icon:hover {
             &::before {
                 transition: all .1s linear;
-                transform: translate(-50%, -50%) scale(10);
+                transform: translate(-50%, -50%) scale(8);
             }
         }
     }
