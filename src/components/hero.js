@@ -15,7 +15,7 @@ const Container = styled.div`
     width: 100%;
     min-height: 100vh;
     background-image: linear-gradient(
-        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, .5) 65%,
         rgba(0, 0, 0, .75)
     ), url(
         https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU
@@ -28,12 +28,11 @@ const Container = styled.div`
     justify-content: center;
     .hero-title {
         margin-top: 25vh;
-        transform: translate(-10%, -7.5%);
-        h1, h3 {
-            font-family: "Work Sans";
-        }
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
         }
     }
 `

@@ -66,6 +66,9 @@ const Container = styled.div`
             background-color: var(--black);
             box-shadow: 0 2px 15px rgba(0, 0, 0, .2);
             color: var(--white);
+            &::before {
+                background-color: rgba(255, 255, 255, .2);
+            }
         }
     }
     & .designs, & .codes {
@@ -96,6 +99,9 @@ const Container = styled.div`
         padding: .5rem 1rem;
         background-color: var(--black);
         color: var(--white);
+        &::before {
+            background-color: rgba(255, 255, 255, .2);
+        }
         border-radius: .5rem;
         font-weight: 700;
         width: 5rem;

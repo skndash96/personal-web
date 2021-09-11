@@ -27,7 +27,7 @@ const Container = styled.div`
     place-items: center;
     gap: 2rem;
     padding: 0 0 4rem 0;
-    background: var(--blue);
+    background: var(--black);
     color: var(--white);
     position: relative;
     & > * {
@@ -39,7 +39,7 @@ const Container = styled.div`
     .about-pic {
         width: 10rem;
         height: 10rem;
-        background: rgba(0, 0, 0, .2);
+        background: rgba(255, 255, 255, .2);
         border-radius: 50%;
         overflow: hidden;
     }
@@ -52,7 +52,7 @@ const Container = styled.div`
     .cta {
         padding: .5rem 1rem;
         background: var(--white);
-        color: var(--blue);
+        color: var(--black);
         border-radius: .5rem;
         font-weight: 700;
         transform: scale(1);
@@ -63,7 +63,7 @@ const Container = styled.div`
             left: 2px;
             right: 2px;
             bottom: 2px;
-            border: 1px solid var(--blue);
+            border: 1px solid var(--black);
             border-radius: inherit;
         }
         &:hover {
@@ -77,7 +77,7 @@ const Container = styled.div`
         left: 0;
         right: 0;
         height: 7.5rem;
-        background: var(--blue);
+        background: var(--black);
         transform: skewY(-3deg) translateY(-30%);
     }
 `

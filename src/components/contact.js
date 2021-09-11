@@ -1,8 +1,15 @@
 import styled from 'styled-components'
-
-
-
-
+import {
+    FaGithub,
+    FaFacebook,
+    FaDribbble
+} from 'react-icons/fa'
+import {
+    AiFillTwitterCircle
+} from 'react-icons/ai'
+import {
+    SiMailDotRu
+} from 'react-icons/si'
 
 export default function Hero() {
     return (
@@ -26,6 +33,14 @@ export default function Hero() {
                     </button>
                 </form>
             </div>
+            
+            <div className="contact-links">
+                <button> <FaGithub /> </button>
+                <button> <FaFacebook /> </button>
+                <button> <AiFillTwitterCircle /> </button>
+                <button> <FaDribbble /> </button>
+                <button> <SiMailDotRu /> </button>
+            </div>
         </Container>
     );
 }
@@ -36,7 +51,6 @@ const Container = styled.div`
     background: var(--blue);
     color: var(--white);
     .contact-title {
-        font-family: "Work Sans";
         text-align: center;
         margin-bottom: 2.5rem;
     }
@@ -60,7 +74,23 @@ const Container = styled.div`
             button {
                 background: var(--white);
                 border-radius: .5rem;
+                transform: scale(1);
             }
+        }
+    }
+    .contact-links {
+        display: flex;
+        justify-content: space-evenly;
+        button {
+            margin-top: 2rem;
+            height: 2.5rem;
+            width: 2.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+            transform: scale(1);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
         }
     }
 `

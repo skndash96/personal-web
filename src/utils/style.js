@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Montserrat;
+        font-family: "Work Sans";
     }
     
     html {
@@ -48,15 +48,15 @@ export const GlobalStyle = createGlobalStyle`
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
             border-radius: 50%;
-            width: 1rem;
-            height: 1rem;
+            width: .5rem;
+            height: .5rem;
             background: rgba(25, 25, 25, .2);
         }
         &:active, &.icon:hover {
             &::before {
                 transition: all .1s linear;
                 transform: translate(-50%, -50%) scale(8);
-            }
+            }.
         }
     }
     
