@@ -1,7 +1,49 @@
-import styled from 'styled-components'
-import { ReactComponent as Astronaut } from '../astronaut.svg'
+import styled, {
+    keyframes
+} from 'styled-components'
+import {
+    ReactComponent as Astronaut
+} from '../astronaut.svg'
+import {
+    useEffect
+} from 'react'
 
 export default function Hero() {
+    useEffect(() => {
+        const rockFrames = [
+            {}, {
+                transform: "rotate(-2deg)"
+            }, {
+                transform: "rotate(2deg)"
+            }, {
+                transform: "rotate(-2deg)"
+            }, {
+                transform: "rotate(2deg)"
+            }, {}
+        ]
+        const menFrames= [
+            {}, {
+                transform: "rotate(2deg)"
+            }, {
+                transform: "rotate(-2deg)"
+            }, {
+                transform: "rotate(2deg)"
+            }, {
+                transform: "rotate(-2deg)"
+            }, {}
+        ]
+        
+        const options = {
+            duration: 5000,
+            iterations: Infinity
+        }
+        
+        const rocks = document.querySelectorAll('.cls-12, .cls-13, .cls-14')
+       const men = document.querySelectorAll('.cls-1, .cls-3, .cls-4, .cls-6, .cls-7, .cls-9, .cls-8, .cls-10, .cls-11')
+        rocks.forEach(rock => rock.animate(rockFrames, options))
+        men.forEach(part => part.animate(menFrames, options))
+    }, [])
+    
     return (
         <Container>
             <div className="hero-title">
@@ -18,10 +60,11 @@ export default function Hero() {
 
 const Container = styled.div`
     width: 100%;
+    padding: 3.5rem 0;
     min-height: 100vh;
     background-image: linear-gradient(
-        rgba(0, 0, 0, .5) 65%,
-        rgba(0, 0, 0, .75)
+        rgba(0, 0, 0, .5) 35%,
+        rgba(0, 0, 0)
     ), url(
         https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU
     );
@@ -42,7 +85,8 @@ const Container = styled.div`
         }
     }
     .hero-image {
-        width: 75vw;
-        height: 75vw;
+        width: 70vmin;
+        height: 70vmin;
+        z-index: 99;
     }
 `
