@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ReactComponent as Astronaut } from '../astronaut.svg'
 
 export default function Hero() {
     return (
@@ -6,6 +7,10 @@ export default function Hero() {
             <div className="hero-title">
                 <h1> Hello! </h1>
                 <h3> I am Dash Skndash. </h3>
+            </div>
+            
+            <div className="hero-image">
+                <Astronaut />
             </div>
         </Container>
     );
@@ -24,15 +29,20 @@ const Container = styled.div`
     background-position: center;
     background-size: cover;
     color: var(--white);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     .hero-title {
-        margin-top: 25vh;
         h1 {
             font-size: 3.5rem;
         }
         h3 {
             font-size: 1.5rem;
         }
+    }
+    .hero-image {
+        width: 75vw;
+        height: 75vw;
     }
 `
