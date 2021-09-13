@@ -50,6 +50,9 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
+    box-shadow:
+        5px 5px 25px rgba(0, 0, 0, .2),
+        inset 0 10px 25px rgba(0, 0, 0, .5);
     & .design-dev-switch {
         & > * {
             font-weight: 700;

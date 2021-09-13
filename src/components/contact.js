@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, {
+    keyframes
+} from 'styled-components'
 import {
     FaGithub,
     FaFacebook,
@@ -17,6 +19,7 @@ export default function Hero() {
             <h1 className="contact-title">
                 Contact
             </h1>
+            
             
             <div className="contact-form">
                 <form>
@@ -48,7 +51,11 @@ export default function Hero() {
 const Container = styled.div`
     width: 100%;
     padding: 2.5rem;
-    background: var(--blue);
+    background-image: linear-gradient(
+        to bottom left,
+        var(--pink),
+        var(--blue)
+    );
     color: var(--white);
     .contact-title {
         text-align: center;
@@ -65,7 +72,11 @@ const Container = styled.div`
                 padding: .5rem 1rem;
             }
             input {
-                border-bottom: 2px solid var(--white);
+                border: 2px solid var(--white);
+                border-radius: .5rem;
+                transition: all .2s linear;
+                color: var(--white);
+                background: rgba(0, 0, 0, .1);
                 &::placeholder {
                     color: var(--white);
                     opacity: .75;
@@ -81,11 +92,13 @@ const Container = styled.div`
     .contact-links {
         display: flex;
         justify-content: space-evenly;
+        max-width: 20rem;
+        margin: 0 auto;
         button {
             margin-top: 2rem;
             height: 2.5rem;
             width: 2.5rem;
-            font-size: 1.5rem;
+            font-size: var(--fs-lg);
             color: var(--white);
             transform: scale(1);
             border-radius: 50%;

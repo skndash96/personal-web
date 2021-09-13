@@ -10,38 +10,45 @@ import {
 
 export default function Hero() {
     useEffect(() => {
-        const rockFrames = [
-            {}, {
-                transform: "rotate(-2deg)"
-            }, {
-                transform: "rotate(2deg)"
-            }, {
-                transform: "rotate(-2deg)"
-            }, {
-                transform: "rotate(2deg)"
-            }, {}
-        ]
-        const menFrames= [
-            {}, {
-                transform: "rotate(2deg)"
-            }, {
-                transform: "rotate(-2deg)"
-            }, {
-                transform: "rotate(2deg)"
-            }, {
-                transform: "rotate(-2deg)"
-            }, {}
+        const rotate = [
+            {},
+            { transform: "rotate(-2deg)" },
+            { transform: "rotate(2deg)" },
+            { transform: "rotate(-2deg)" },
+            { transform: "rotate(2deg)" },
+            {}
         ]
         
-        const options = {
-            duration: 5000,
-            iterations: Infinity
-        }
-        
-        const rocks = document.querySelectorAll('.cls-12, .cls-13, .cls-14')
-       const men = document.querySelectorAll('.cls-1, .cls-3, .cls-4, .cls-6, .cls-7, .cls-9, .cls-8, .cls-10, .cls-11')
-        rocks.forEach(rock => rock.animate(rockFrames, options))
-        men.forEach(part => part.animate(menFrames, options))
+        const rocks = document.querySelectorAll('.cls-12, .cls-14')
+        const shadowRocks = document.querySelectorAll('.cls-13, .cls-9')
+       const parts = document.querySelectorAll('.cls-1, .cls-3, .cls-4, .cls-6, .cls-7, .cls-8, .cls-10, .cls-11')
+       
+       for (let i = 0; i < shadowRocks.length; i++) {
+            const el = shadowRocks[i]
+           
+            el.animate(rotate, {
+                duration: 7500,
+                iterations: Infinity,
+                delay: Math.random() * 3 * 1000
+            })
+       }
+       for (let i = 0; i < rocks.length; i++) {
+           const el = rocks[i]
+           
+           el.animate(rotate, {
+                duration: 7500,
+                iterations: Infinity
+            })
+       }
+       for (let i = 0; i < parts.length; i++) {
+           const el = parts[i]
+           
+           el.animate(rotate.slice().reverse(), {
+               duration: 4356,
+               iterations: Infinity,
+               delay: 768
+           })
+       }
     }, [])
     
     return (
@@ -60,8 +67,8 @@ export default function Hero() {
 
 const Container = styled.div`
     width: 100%;
-    padding: 3.5rem 0;
-    min-height: 100vh;
+    min-height: 85vh;
+    padding: 5rem 0;
     background-image: linear-gradient(
         rgba(0, 0, 0, .5) 35%,
         rgba(0, 0, 0)
@@ -69,19 +76,19 @@ const Container = styled.div`
         https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU
     );
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 0 25%;
     background-size: cover;
     color: var(--white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     .hero-title {
         h1 {
-            font-size: 3.5rem;
+            font-size: var(--fs-xxl);
         }
         h3 {
-            font-size: 1.5rem;
+            font-size: var(--fs-lg);
         }
     }
     .hero-image {

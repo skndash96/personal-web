@@ -25,7 +25,16 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html {
-        font-size: calc(0.5rem + 0.025 * 100vmin);
+        font-size: 1rem;
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+        @media (min-width: 992px) {
+            font-size: 3rem;
+        }
+        @media (min-width: 1192px) {
+            font-size: 3.5rem;
+        }
     }
     
     ul, ol {
@@ -55,7 +64,7 @@ export const GlobalStyle = createGlobalStyle`
         &:active, &.icon:hover {
             &::before {
                 transition: all .1s linear;
-                transform: translate(-50%, -50%) scale(8);
+                transform: translate(-50%, -50%) scale(10);
             }.
         }
     }

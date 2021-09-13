@@ -22,10 +22,16 @@ export default function App() {
 }
 
 const Wrapper = styled.div`
-    --contrast: #2128a6;
     --blue: #3498de;
+    --pink: #d6657f;
     --white: #ffffff;
     --black: #000000;
+    
+    --fs-xxl: 4rem;
+    --fs-xl: 2.5rem;
+    --fs-lg: 1.5rem;
+    --fs-md: 1rem;
+    --fs-sm: .75rem;
     
     width: 100%;
     overflow-x: hidden;

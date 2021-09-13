@@ -1,13 +1,46 @@
 import styled from 'styled-components'
+import {
+    ReactComponent as Rocket
+} from '../rocket.svg'
+import {
+    useEffect
+} from 'react'
 
 export default function Hero() {
+    useEffect(() => {
+        const paths = document.querySelector('.about-rocket').querySelectorAll('path')
+        
+        const rotate = [
+            {},
+            { transform: "rotate(-24deg)" },
+            { transform: "rotate(-26deg)" },
+            { transform: "rotate(-25deg)" },
+            {}
+        ]
+        const options = {
+            duration: 5000,
+            iterations: Infinity
+        }
+        
+        for (let i = 0; i < paths.length; i++) {
+            paths[i].animate(
+                (i === 8 || i === 9)
+                ? rotate.slice().reverse()
+                : rotate,
+                options
+            )
+        }
+    }, [])
+    
     return (
         <Container>
             <h1 className="about-title">
                 About me
             </h1>
             
+            
             <div className="about-pic">
+                <Rocket className="about-rocket" />
             </div>
             
             <p className="about-text">
@@ -41,7 +74,16 @@ const Container = styled.div`
         height: 10rem;
         background: rgba(255, 255, 255, .2);
         border-radius: 50%;
-        overflow: hidden;
+        position: relative;
+        .about-rocket {
+            width: 50vmin;
+            height: 50vmin;
+            position: absolute;
+            top: -2.5rem;
+            right: -2.5rem;
+            transform-origin: right;
+            transform: rotate(-26deg);
+        }
     }
     .about-text {
         text-align: center;
