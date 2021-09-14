@@ -70,17 +70,17 @@ const Container = styled.div`
         font-family: "Work Sans";
     }
     .about-pic {
-        width: 10rem;
-        height: 10rem;
+        width: 12.5rem;
+        height: 12.5rem;
         background: rgba(255, 255, 255, .2);
         border-radius: 50%;
         position: relative;
         .about-rocket {
-            width: 50vmin;
-            height: 50vmin;
+            width: inherit;
+            height: inherit;
             position: absolute;
             top: -2.5rem;
-            right: -2.5rem;
+            right: -4rem;
             transform-origin: right;
             transform: rotate(-25deg);
         }

@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     --white: #ffffff;
     --black: #000000;
     
-    --fs-xxl: 4rem;
+    --fs-xxl: 3.5rem;
     --fs-xl: 2.5rem;
     --fs-lg: 1.5rem;
     --fs-md: 1rem;

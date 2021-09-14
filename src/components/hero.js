@@ -67,7 +67,9 @@ export default function Hero() {
 
 const Container = styled.div`
     width: 100%;
-    min-height: 85vh;
+    min-height: 25rem;
+    height: 100vh;
+    padding: 2.5rem 0;
     background-image: linear-gradient(
         rgba(0, 0, 0, .5) 35%,
         rgba(0, 0, 0)

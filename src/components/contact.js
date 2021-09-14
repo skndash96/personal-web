@@ -72,10 +72,7 @@ const Container = styled.div`
         transform: translateX(-25%);
         animation: ${rotate} 60s linear infinite;
         @media (min-width: 612px) {
-            width: 17.5rem;
-        }
-        @media (min-width: 768px) {
-            width: 20rem;
+            width: 16.5rem;
         }
     }
     .contact-form {

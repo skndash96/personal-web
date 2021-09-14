@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
             height: .5rem;
             background: rgba(25, 25, 25, .2);
         }
-        &:active, &.icon:hover {
+        &:active, &:hover {
             &::before {
                 transition: all .1s linear;
                 transform: translate(-50%, -50%) scale(10);

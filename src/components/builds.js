@@ -59,7 +59,7 @@ const Container = styled.div`
             margin: 0 .5rem;
             width: 5rem;
             transform: scale(1);
-            transition: all .2s linear;
+            transition: all .2s linear;.
         }
         & button.active {
             background-color: var(--black);
