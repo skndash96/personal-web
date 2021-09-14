@@ -68,7 +68,6 @@ export default function Hero() {
 const Container = styled.div`
     width: 100%;
     min-height: 85vh;
-    padding: 5rem 0;
     background-image: linear-gradient(
         rgba(0, 0, 0, .5) 35%,
         rgba(0, 0, 0)
@@ -76,12 +75,11 @@ const Container = styled.div`
         https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU
     );
     background-repeat: no-repeat;
-    background-position: 0 25%;
     background-size: cover;
     color: var(--white);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     .hero-title {
         h1 {

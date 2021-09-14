@@ -11,11 +11,11 @@ export default function Hero() {
         const paths = document.querySelector('.about-rocket').querySelectorAll('path')
         
         const rotate = [
-            {},
-            { transform: "rotate(-24deg)" },
-            { transform: "rotate(-26deg)" },
             { transform: "rotate(-25deg)" },
-            {}
+            { transform: "rotate(-23deg)" },
+            { transform: "rotate(-26deg)" },
+            { transform: "rotate(-24deg)" },
+            { transform: "rotate(-25deg)" }
         ]
         const options = {
             duration: 5000,
@@ -82,7 +82,7 @@ const Container = styled.div`
             top: -2.5rem;
             right: -2.5rem;
             transform-origin: right;
-            transform: rotate(-26deg);
+            transform: rotate(-25deg);
         }
     }
     .about-text {

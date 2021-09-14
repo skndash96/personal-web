@@ -1,20 +1,4 @@
-import styled, { createGlobalStyle, css } from "styled-components";
-
-const sizes = {
-  medium: "768px", //handhelds
-  large: "992px", //tabs and pcs
-};
-export const media = Object.keys(sizes).reduce((all, key) => {
-  all[key] = (...args) => {
-    return `
-      @media screen and (min-width: ${sizes[key]}) {
-        ${css(...args)}
-      }
-    `;
-  };
-  return all;
-}, {});
-
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {
@@ -25,16 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html {
-        font-size: 1rem;
-        @media (min-width: 768px) {
-            font-size: 2rem;
-        }
-        @media (min-width: 992px) {
-            font-size: 3rem;
-        }
-        @media (min-width: 1192px) {
-            font-size: 3.5rem;
-        }
+        font-size: calc(.5rem + 0.025 * 100vmin);
     }
     
     ul, ol {

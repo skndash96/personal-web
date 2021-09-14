@@ -22,8 +22,7 @@ export default function App() {
 }
 
 const Wrapper = styled.div`
-    --blue: #3498de;
-    --pink: #d6657f;
+    --blue: #2c74d0;
     --white: #ffffff;
     --black: #000000;
     

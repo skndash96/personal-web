@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import { media } from '../utils/style'
 
 export default function Hero() {
     const [isDesigns, setIsDesigns] = useState(true)
@@ -50,9 +49,6 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
-    box-shadow:
-        5px 5px 25px rgba(0, 0, 0, .2),
-        inset 0 10px 25px rgba(0, 0, 0, .5);
     & .design-dev-switch {
         & > * {
             font-weight: 700;
@@ -63,7 +59,7 @@ const Container = styled.div`
             margin: 0 .5rem;
             width: 5rem;
             transform: scale(1);
-            transition: all .2s ease-in;
+            transition: all .2s linear;
         }
         & button.active {
             background-color: var(--black);
@@ -78,10 +74,10 @@ const Container = styled.div`
         margin: 1rem 0 2rem 0;
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
-        ${media.medium`
+        @media (min-width: 768px) {
             grid-template-rows: unset;
             grid-template-columns: 1fr 1fr;
-        `}
+        }
         gap: 1rem;
         & .item {
             min-width: 13rem;
@@ -91,11 +87,11 @@ const Container = styled.div`
             &:last-child {
                 display: none;
             }
-            ${media.medium`
+            @media (min-width: 768px) {
                 &:last-child {
                     display: block;
                 }
-            `}
+            }
         }
     }
     & .view-more {
