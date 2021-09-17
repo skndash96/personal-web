@@ -27,7 +27,7 @@ export default function Hero() {
             const el = shadowRocks[i]
            
             el.animate(rotate, {
-                duration: 7500,
+                duration: 15000,
                 iterations: Infinity,
                 delay: Math.random() * 3 * 1000
             })
@@ -36,7 +36,7 @@ export default function Hero() {
            const el = rocks[i]
            
            el.animate(rotate, {
-                duration: 7500,
+                duration: 15000,
                 iterations: Infinity
             })
        }
@@ -44,7 +44,7 @@ export default function Hero() {
            const el = parts[i]
            
            el.animate(rotate.slice().reverse(), {
-               duration: 4356,
+               duration: 12000,
                iterations: Infinity,
                delay: 768
            })

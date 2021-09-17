@@ -40,6 +40,7 @@ export default function Hero() {
             
             
             <div className="about-pic">
+                <img src="https://avatars.githubusercontent.com/u/78152517?v=4" alt="about-pic" />
                 <Rocket className="about-rocket" />
             </div>
             
@@ -75,7 +76,17 @@ const Container = styled.div`
         background: rgba(255, 255, 255, .2);
         border-radius: 50%;
         position: relative;
+        img {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            border-radius: inherit;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         .about-rocket {
+            color: #409331;
             width: inherit;
             height: inherit;
             position: absolute;

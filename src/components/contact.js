@@ -12,9 +12,6 @@ import {
 import {
     SiMailDotRu
 } from 'react-icons/si'
-import {
-    ReactComponent as Planet
-} from '../planet.svg'
 
 export default function Hero() {
     return (
@@ -22,8 +19,6 @@ export default function Hero() {
             <h1 className="contact-title">
                 Contact
             </h1>
-            
-            <Planet className="contact-planet" />
             
             <div className="contact-form">
                 <form>
@@ -63,17 +58,7 @@ const Container = styled.div`
     color: var(--white);
     .contact-title {
         text-align: center;
-    }
-    .contact-planet {
-        display: block;
-        width: 15rem;
-        height: unset;
-        margin: 0 auto -5rem auto;
-        transform: translateX(-25%);
-        animation: ${rotate} 60s linear infinite;
-        @media (min-width: 612px) {
-            width: 16.5rem;
-        }
+        margin-bottom: 2.5rem;
     }
     .contact-form {
         form {

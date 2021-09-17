@@ -6,12 +6,14 @@ import Hero from './components/hero'
 import Builds from './components/builds'
 import About from './components/about'
 import Contact from './components/contact'
+import Menu from './components/menu'
 
 export default function App() {
     return (
         <Wrapper>
             <GlobalStyle />
             <main>
+                <Menu />
                 <Hero />
                 <About />
                 <Builds />

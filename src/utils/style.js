@@ -25,22 +25,30 @@ export const GlobalStyle = createGlobalStyle`
     
     button {
         overflow: hidden;
+        cursor: pointer;
         &::before {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            border-radius: 50%;
+            border-radius: inherit;
             width: .5rem;
             height: .5rem;
-            background: rgba(25, 25, 25, .2);
         }
-        &:active, &:hover {
+        &:hover {
             &::before {
                 transition: all .1s linear;
+                background: rgba(255, 255, 255, .075);
                 transform: translate(-50%, -50%) scale(10);
-            }.
+            }
+        }
+        &:active {
+            &::before {
+                transition: all .1s linear;
+                background: rgba(255, 255, 255, .225) !important;
+                transform: translate(-50%, -50%) scale(10);
+            }
         }
     }
     
