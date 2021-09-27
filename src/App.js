@@ -3,7 +3,6 @@ import {
     GlobalStyle
 } from './utils/style'
 import Hero from './components/hero'
-import Builds from './components/builds'
 import About from './components/about'
 import Contact from './components/contact'
 import Menu from './components/menu'
@@ -16,7 +15,6 @@ export default function App() {
                 <Menu />
                 <Hero />
                 <About />
-                <Builds />
                 <Contact />
             </main>
         </Wrapper>

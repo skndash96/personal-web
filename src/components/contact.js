@@ -53,7 +53,11 @@ const rotate = keyframes`
 
 const Container = styled.div`
     width: 100%;
-    padding: 2.5rem;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: var(--blue);
     color: var(--white);
     .contact-title {

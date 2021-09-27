@@ -37,7 +37,6 @@ export default function Hero() {
             <div onClick={handleMenuClick} className={`menu ${menuIsActive && "active"}`}>
                 <ul>
                     <li> About </li>
-                    <li> Works </li>
                     <li> Contact </li>
                     <li> Social </li>
                 </ul>

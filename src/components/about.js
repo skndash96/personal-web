@@ -40,7 +40,7 @@ export default function Hero() {
             
             
             <div className="about-pic">
-                <img src="https://avatars.githubusercontent.com/u/78152517?v=4" alt="about-pic" />
+                <img src="" alt="ProfilePic" />
                 <Rocket className="about-rocket" />
             </div>
             
@@ -77,8 +77,8 @@ const Container = styled.div`
         border-radius: 50%;
         position: relative;
         img {
-            width: inherit;
             height: inherit;
+            width: inherit;
             position: absolute;
             border-radius: inherit;
             top: 50%;
