@@ -1,0 +1,25 @@
+#content {
+  font-family: serif;
+  white-space: pre-line;
+  text-align: left !important;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#content h1 {
+  text-align: center;
+}
+
+#content a {
+  color: var(--lblue);
+}
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content code {
+  display: inline-block;
+  background: var(--dblue);
+  padding: 0.5rem;
+  padding-left: 0.1rem;
+}
