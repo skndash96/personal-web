@@ -1,9 +1,7 @@
 <script>
   export let data;
 
-  import {
-    Converter
-  } from "showdown";
+  import showdown from "showdown";
 
   let {
     id,
@@ -14,7 +12,7 @@
 
   text = text.replaceAll("\\n", "\n");
 
-  let conv = new Converter();
+  let conv = new showdown.Converter();
   let html = conv.makeHtml(text);
 </script>
 
@@ -40,7 +38,7 @@
 </section>
 
 <style>
-  @import "./blog.css";
+  @import "../../blog.css";
   
   section {
     display: block;
