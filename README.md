@@ -1,2 +1,2 @@
 # Portfolio and Blog
-Checkit out @ https://skndash.tk
+Check out @ https://skndash.tk
