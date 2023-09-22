@@ -13,7 +13,6 @@
   <meta name="description" content="Portfolio of who I am and what I do." />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f3339b4404.js" crossorigin="anonymous"></script>
 </svelte:head>
 
@@ -79,7 +78,7 @@
 	
   header {
     background: linear-gradient(to bottom left, var(--dblue), var(--blue), var(--lblue));
-    padding: .5rem 1rem;
+    padding: .5rem 5vw;
     position: relative;
   }
   header {

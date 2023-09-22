@@ -1,11 +1,9 @@
 #content {
   margin: 0 auto;
-  padding: 0 1rem;
-  max-width: 32rem;
-  font-family: serif;
-  white-space: pre-line;
-  text-align: left !important;
+  max-width: clamp(16rem, 80vw, 32rem);
   width: fit-content;
+  white-space: pre-line;
+  text-align: left;
 }
 
 #content h1 {

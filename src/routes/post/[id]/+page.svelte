@@ -78,7 +78,7 @@
     z-index: 100;
     margin: 0 auto;
     position: absolute;
-    top: 50%;
+    top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
   }

@@ -14,10 +14,10 @@
 
     audio = document.getElementById("ototw");
   });
-  
+
   function toggleAudio() {
     if (!audio) return;
-    
+
     audio.play();
     isPlaying = true;
   }
@@ -63,74 +63,81 @@
   </section>
 
   <section id="work">
-    <h1>What I do</h1>
-    <ul>
-      <li>Seek things that drive me curious</li>
-      <li>Develop apps and websites</li>
-      <li>Binge-watch series and anime</li>
-    </ul>
+    <h1>
+      What I do
+    </h1>
+
+    <p>
+      🤌 | Seek things that drive me curious
+      <br>⌨️ | Develop apps and websites
+      <br>📺 | Binge-watch series and anime
+    </p>
+    
     <hr />
+    
     <a class="blog" href="/post">
       <span> Checkout Blog </span>
       <i class="fa-solid fa-up-right-from-square"></i>
     </a>
   </section>
 
-<section id="contact">
-  <h1 class="contact-title">
-    Contact
-  </h1>
+  <section id="contact">
+    <h1 class="contact-title">
+      Contact
+    </h1>
 
-  <div class="contact-form">
-    <form on:submit|preventDefault>
-      <input
-      type="text"
-      placeholder="whats your email?"
-      >
-      <textarea
+    <div class="contact-form">
+      <form on:submit|preventDefault>
+        <input
         type="text"
-        placeholder="whats in your mind?"
-        ></textarea>
-      <button class="classic">
-        Submit
-      </button>
-    </form>
-  </div>
+        placeholder="whats your email?"
+        >
+        <textarea
+          type="text"
+          placeholder="whats in your mind?"
+          ></textarea>
+        <button class="classic">
+          Submit
+        </button>
+      </form>
+    </div>
 
-  <div class="social">
-    <a rel="external" href="https://instagram.com/skndash96">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a rel="external" href="https://github.com/skndash96">
-      <i class="fa-brands fa-github"></i>
-    </a>
-    <a rel="external" href="#contact">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
-    <a rel="external" href="#contact">
-      <i class="fa-brands fa-dribbble"></i>
-    </a>
-    <a rel="external" href="mailto:dashskndash@gmail.com">
-      <i class="fa-regular fa-envelope"></i>
-    </a>
-  </div>
-</section>
+    <div class="social">
+      <a rel="external" href="https://instagram.com/skndash96">
+        <i class="fa-brands fa-instagram"></i>
+     </a>
+      <a rel="external" href="https://github.com/skndash96">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a rel="external" href="#contact">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a rel="external" href="#contact">
+        <i class="fa-brands fa-dribbble"></i>
+      </a>
+      <a rel="external" href="mailto:dashskndash@gmail.com">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+  </section>
 </div>
 
 <style>
-section {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-flex: 0.6;
+#about p,
+#work p,
+#contact .contact-form,
+#contact .social
+{
+  width: clamp(16rem, 80vw, 36rem);
 }
 
 #hero {
-background-image: linear-gradient(rgba(0, 0, 0, .5) 35%, rgba(0, 0, 0)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU);
+background-image: linear-gradient(rgba(0, 0, 0, .5) 35%, rgba(0, 0, 0)),
+  url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS72zuHNCQYujRbTKF_52OElLLofOwLtursqw&usqp=CAU);
 justify-content: center;
 gap: 0;
 background-size: cover;
+min-height: 80vh;
 }
 #hero div.title {
 text-align: left;
@@ -140,12 +147,12 @@ width: max-content;
 font-size: 2rem;
 }
 #hero h1.huge {
-font-size: 4rem;
+font-size: 3.4rem;
 }
 #hero div.img {
 margin-top: 2rem;
-width: 50vmin;
-height: 50vmin;
+width: 40vmin;
+height: 40vmin;
 position: relative;
 }
 #hero div.img svg {
@@ -154,9 +161,12 @@ height: 100%;
 object-fit: cover;
 }
 
+
+
 #about {
 background: var(--black);
 color: var(--white);
+justify-content: center;
 }
 #about div.img {
 width: 8rem;
@@ -180,39 +190,36 @@ right: -2.5rem;
 transform-origin: right;
 transform: rotate(-25deg);
 }
-#about p {
-max-width: 24rem;
-}
 #about button {
 padding: .5rem 1rem;
 background: var(--white);
 color: var(--black);
-font-weight: 700;
 }
 #about button.audio {
 background: rgba(255, 255, 255, .2);
 border-radius: .5rem;
 }
+
+
+
 #work {
 background: var(--black);
-}
-#work ul {
-max-width: 24rem;
-margin: 0 auto;
-padding: 0 1rem;
+padding-bottom: 8rem;
 }
 #work hr {
-width: 80vw;
-max-width: 24rem;
-margin: 0 auto;
 background: var(--white);
+margin: 0 auto;
+width: 50%;
 }
 #work a.blog {
-  font-size: 1.1rem;
+font-size: 1.1rem;
 }
 #work a.blog span {
-  margin-right: .5rem;
+margin-right: .5rem;
 }
+
+
+
 #contact {
 background-image: linear-gradient(var(--lblue), var(--dblue));
 color: var(--white);
@@ -227,7 +234,7 @@ place-items: center;
 #contact form input, #contact form textarea {
 border-bottom: 1px solid var(--gray);
 transition: all 200ms ease-out;
-width: 15rem;
+width: 100%;
 }
 #contact form input, #contact form input::placeholder, #contact form textarea, #contact form textarea::placeholder {
 color: var(--white);
@@ -237,15 +244,17 @@ border-bottom: 1px solid var(--white);
 }
 #contact form button {
 width: fit-content;
-padding: .25rem .75rem;
 margin: 0 auto;
-color: var(--black);
-background-color: var(--white);
+padding: .25rem .75rem;
+color: var(--hover);
+background-color: var(--gray);
 border-radius: 5px;
 font-weight: 600;
 }
 #contact .social {
 display: flex;
+width: fit-content;
+margin: 0 auto;
 gap: 1rem;
 }
 #contact .social a {

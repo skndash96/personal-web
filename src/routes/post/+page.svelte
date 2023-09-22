@@ -32,7 +32,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-    max-width: 24rem;
+    max-width: clamp(16rem, 80vw, 36rem);
   }
   .postref {
     display: grid;

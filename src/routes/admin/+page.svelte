@@ -134,7 +134,7 @@
   
   section {
     width: 100%;
-    max-width: 32rem;
+    max-width: clamp(16rem, 80vw, 32rem);
     margin: 0 auto;
   }
   
@@ -153,6 +153,7 @@
     background: var(--lgray);
     color: var(--black);
     padding: .5rem;
+    width: 100%;
   }
   textarea {
     min-height: 15rem;
