@@ -21,7 +21,7 @@
 	<header>
     <div class="image">
       <img src="{ProfilePic}" alt="logo" />
-      <span> DASH </span>
+      <a href="/"> DASH </a>
     </div>
     <button on:click="{toggleDrop}">
       <span>
@@ -99,12 +99,15 @@
     display: flex;
     align-items: center;
   }
-  .image span {
+  .image a {
     font-size: 1.2rem;
     font-weight: 800;
     font-family: Monospace;
     margin-left: -.25rem;
     color: var(--white);
+  }
+  .image a:hover {
+    text-decoration: none;
   }
   .image img {
     width: inherit;

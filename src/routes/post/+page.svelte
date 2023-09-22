@@ -9,6 +9,7 @@
     Recent blogs
   </h1>
   
+  <div class="postbox">
   {#each posts as p}
   <div class="postref" id="{p.id}">
     <a class="title" href="/post/{p.id}">
@@ -23,17 +24,25 @@
     </span>
   </div>
   {/each}
+  </div>
 </section>
 
 <style>
+  .postbox {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 24rem;
+  }
   .postref {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
     align-items: center;
+    text-align: left;
   }
   .title {
     color: var(--bblue);
-    margin-right: 2rem;
   }
   .time {
     color: var(--lgray);

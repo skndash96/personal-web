@@ -63,18 +63,18 @@
   </section>
 
   <section id="work">
-    <h2>What I do</h2>
+    <h1>What I do</h1>
     <ul>
       <li>Seek things that drive me curious</li>
       <li>Develop apps and websites</li>
       <li>Binge-watch series and anime</li>
     </ul>
     <hr />
-  <h2> Blog </h2>
-  <ul>
-    <li> Dummy Article #1 </li>
-  </ul>
-</section>
+    <a class="blog" href="/post">
+      <span> Checkout Blog </span>
+      <i class="fa-solid fa-up-right-from-square"></i>
+    </a>
+  </section>
 
 <section id="contact">
   <h1 class="contact-title">
@@ -158,7 +158,6 @@ object-fit: cover;
 background: var(--black);
 color: var(--white);
 }
-
 #about div.img {
 width: 8rem;
 height: 8rem;
@@ -182,7 +181,7 @@ transform-origin: right;
 transform: rotate(-25deg);
 }
 #about p {
-max-width: 15rem;
+max-width: 24rem;
 }
 #about button {
 padding: .5rem 1rem;
@@ -198,15 +197,21 @@ border-radius: .5rem;
 background: var(--black);
 }
 #work ul {
-max-width: 20rem;
+max-width: 24rem;
 margin: 0 auto;
 padding: 0 1rem;
 }
 #work hr {
 width: 80vw;
-max-width: 25rem;
+max-width: 24rem;
 margin: 0 auto;
 background: var(--white);
+}
+#work a.blog {
+  font-size: 1.1rem;
+}
+#work a.blog span {
+  margin-right: .5rem;
 }
 #contact {
 background-image: linear-gradient(var(--lblue), var(--dblue));

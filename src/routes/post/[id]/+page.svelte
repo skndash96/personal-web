@@ -2,7 +2,12 @@
   export let data;
 
   import showdown from "showdown";
-
+  import { fly } from "svelte/transition";
+  import { onMount } from "svelte";
+  
+  let page_loaded = false;
+  onMount(() => (page_loaded = true));
+  
   let {
     id,
     text,
@@ -14,6 +19,7 @@
 
   let conv = new showdown.Converter();
   let html = conv.makeHtml(text);
+  
 </script>
 
 <svelte:head>
@@ -30,11 +36,20 @@
     </span>
   </div>
   
-  <hr />
+  <hr class="classic" />
 
-  <div id="content">
-    {@html html}
-  </div>
+  {#if page_loaded}
+    <div id="content" in:fly={{ y: -50, duration: 200 }}>
+      {@html html}
+    </div>
+  {:else}
+    <div class="loader">
+      <span>
+        <i class="spin fa-solid fa-spinner"></i>
+        Loading
+      </span>
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -57,8 +72,28 @@
     color: var(--lgray);
   }
   
-  hr {
-    border: 1px solid rgba(255,255,255,.2);
-    margin: .5rem 0 2rem 0;
+  .loader {
+    background: var(--dblue);
+    padding: .5rem;
+    z-index: 100;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .spin {
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: Infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 </style>

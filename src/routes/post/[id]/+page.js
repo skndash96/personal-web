@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { formatPost, firestore } from "../firebase.js";
+import { formatPost, firestore } from "../../firebase.js";
 import { doc, getDoc } from "firebase/firestore";
 
 export async function load({ params }) {

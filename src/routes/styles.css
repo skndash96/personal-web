@@ -36,7 +36,14 @@ url: "fonts/wotfard.ttf"
 html {
   font-size: calc(0.75rem + 1.2vw);
 }
-
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 body {
   overflow-x: hidden;
 }
@@ -87,10 +94,6 @@ button.classic:active {
   margin-right: .25rem;
 }
 
-h1, h2, p {
-	font-weight: 400;
-}
-
 p {
 	line-height: 1.5;
 }
@@ -101,4 +104,9 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+hr.classic {
+  border: 1px solid rgba(255,255,255,.2);
+  margin: .5rem 0 2rem 0;
 }

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCUZUxsqb7VbKCueCzvAx5OxO7N89Sgh1o",
@@ -13,6 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
+const auth = getAuth(app);
 
 function formatPost(p) {
   let data = p.data();
@@ -32,4 +34,4 @@ function formatPost(p) {
   return data;
 }
 
-export { firestore, formatPost };
+export { firestore, auth, formatPost };
