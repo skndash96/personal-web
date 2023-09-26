@@ -2,8 +2,8 @@
   import showdown from "showdown";
   import { fly } from "svelte/transition";
   import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-  import { setDoc, doc, serverTimestamp } from "firebase/firestore";
-  import { auth, firestore } from "../firebase.js";
+  import { setDoc, doc, getDoc, serverTimestamp } from "firebase/firestore";
+  import { formatPost, auth, firestore } from "../firebase.js";
 
   let conv = new showdown.Converter();
   
@@ -19,6 +19,22 @@
     mdHtml = conv.makeHtml(markdown || "*there's nothing to show*");
   }
   
+  async function fromPost() {
+    let input = window.prompt("Path of post:");
+    
+    let ref = doc(firestore, "post", input);
+    let post = await getDoc(ref);
+    
+    if (post.exists()) {
+      let { id, text } = formatPost(post);
+      
+      [path, markdown] = [id, text];
+    } else {
+      markdown = `'${input}' post not found`;
+      path = input;
+    }
+  }
+  
   async function addPost() {
     baderror = false;
     postmsg = "... Loading";
@@ -31,6 +47,15 @@
     
     try {
       let ref = doc(firestore, "post", path);
+      
+      let old = await getDoc(ref);
+      if (
+        old.exists()
+        && !window.confirm("Path already exists, you sure you want to replace that post with this?")
+      ) {
+        postmsg = "";
+        return;
+      }
       
       await setDoc(ref, {
         text: markdown,
@@ -125,6 +150,10 @@
     <div id="content">
       {@html mdHtml}
     </div>
+    
+    <button on:click="{fromPost}" class="dull">
+      Fetch from post
+    </button>
   </div>
   {/if}
 </section>
@@ -172,6 +201,16 @@
   }
   p.red {
     color: red;
+  }
+  
+  button.dull {
+    color: #8c8c8c;
+    background: none;
+    padding: 0;
+    margin: 2rem 0 0 0;
+  }
+  button.dull:hover {
+    text-decoration: underline;
   }
   
   button.preview {

@@ -31,6 +31,8 @@ function formatPost(p) {
     ? title[1]
     : "Blog Post";
   
+  data.text = data.text.replaceAll("\\n", "\n");
+
   return data;
 }
 

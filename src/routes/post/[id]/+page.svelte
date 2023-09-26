@@ -15,8 +15,6 @@
     title
   } = data;
 
-  text = text.replaceAll("\\n", "\n");
-
   let conv = new showdown.Converter();
   let html = conv.makeHtml(text);
   

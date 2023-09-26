@@ -76,7 +76,7 @@
     <hr />
     
     <a class="blog" href="/post">
-      <span> Checkout Blog </span>
+      <h1> Checkout Blog </h1>
       <i class="fa-solid fa-up-right-from-square"></i>
     </a>
   </section>
@@ -211,10 +211,8 @@ background: var(--white);
 margin: 0 auto;
 width: 50%;
 }
-#work a.blog {
-font-size: 1.1rem;
-}
-#work a.blog span {
+#work a.blog h1 {
+display: inline;
 margin-right: .5rem;
 }
 
