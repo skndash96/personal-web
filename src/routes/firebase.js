@@ -16,23 +16,24 @@ const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 const auth = getAuth(app);
 
-function formatPost(p) {
-  let data = p.data();
-  
-  data.id = p.id;
-  
-  data.time = new Date(
-    data.timestamp.seconds*1000
-  ).toDateString();
-  
-  let title = data.text.match("#\s*(.+?)\\n");
-  
-  data.title = (title && title.length > 1)
-    ? title[1]
-    : "Blog Post";
+function formatPost(p, direct) {
+  let data = direct ? p : p.data();
   
   data.text = data.text.replaceAll("\\n", "\n");
-
+  
+  let lines = data.text
+    .split("\n")
+    .slice(0,4)
+    .filter(Boolean);
+  
+  data.time = new Date(
+    data.timestamp?.seconds*1000
+  ).toDateString();
+  
+  data.id = p.id;
+  data.title = lines[0] || "Blog Post";
+  data.desc = lines[1] || lines[2] || "";
+  
   return data;
 }
 

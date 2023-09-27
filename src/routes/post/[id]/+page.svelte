@@ -12,16 +12,17 @@
     id,
     text,
     time,
-    title
+    title,
+    desc
   } = data;
 
   let conv = new showdown.Converter();
   let html = conv.makeHtml(text);
-  
 </script>
 
 <svelte:head>
   <title> {title} </title>
+  <meta name="description" content="{desc}">
 </svelte:head>
 
 <section>

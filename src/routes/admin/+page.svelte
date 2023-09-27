@@ -10,13 +10,19 @@
   let signed = false;
   
   let email, password,
-    path, markdown, mdHtml,
+    path, format, markdown, mdHtml,
     authmsg, postmsg,
     baderror = false;
   
   preview();
   function preview() {
     mdHtml = conv.makeHtml(markdown || "*there's nothing to show*");
+    
+    let { desc, title } = formatPost({ text: markdown||"" }, true)
+    
+    format = JSON.stringify(
+      { desc, title }
+    ).replaceAll("\\n", "\n");
   }
   
   async function fromPost() {
@@ -33,6 +39,8 @@
       markdown = `'${input}' post not found`;
       path = input;
     }
+    
+    preview();
   }
   
   async function addPost() {
@@ -147,6 +155,10 @@
     
     <hr class="classic" />
     
+    <div class="format">
+      {format}
+    </div>
+    
     <div id="content">
       {@html mdHtml}
     </div>
@@ -193,6 +205,12 @@
     margin: 0 auto;
     color: var(--white);
     background: var(--dblue);
+  }
+  
+  div.format {
+    background: #0e0e0e;
+    color: #647f99;
+    margin-bottom: 2rem;
   }
   
   p.error {
