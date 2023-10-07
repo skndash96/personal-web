@@ -259,7 +259,7 @@ gap: 1rem;
 font-size: 1.2rem;
 color: var(--white);
 }
-#contact .social a:active {
+#contact .social a:hover {
 color: var(--gray);
 transform: scale(95%);
 background: none;
