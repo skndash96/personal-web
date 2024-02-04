@@ -43,16 +43,20 @@
       Dude, Myth or Mega Human
     </h1>
 
+    <div class="flexbox">
+    <div>
     <div class="img">
       <img src="{ProfilePic}" alt="logo">
       <svg id="rocket" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-280 0 1280 1280"></svg>
     </div>
 
-    <div>
+    <div class="audio">
       <button class="audio" on:click="{toggleAudio}">🔊</button>
       <audio id="ototw" loop src="{AudioOTOTW}"></audio>
     </div>
+    </div>
 
+    <div>
     <p>
       This text will be filled with something that makes more sense soon. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent augue lacus, fermentum eget mi at, pretium posuere eros. Morbi in dui diam.
     </p>
@@ -60,6 +64,8 @@
     <button class="classic ring">
       Meet me
     </button>
+    </div>
+    </div>
   </section>
 
   <section id="work">
@@ -166,7 +172,28 @@ object-fit: cover;
 #about {
 background: var(--black);
 color: var(--white);
-justify-content: center;
+}
+#about div.flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: var(--max-w-lg);
+}
+#about div.flexbox > div:first-child > * {
+width: fit-content;
+margin: 1rem auto;
+}
+#about div.flexbox > div:last-child p {
+width: fit-content;
+}
+#about div.flexbox > div:first-child {
+flex-shrink: 0;
+}
+@media screen and (min-width: 556px) {
+#about div.flexbox {
+  flex-direction: row;
+}
 }
 #about div.img {
 width: 8rem;
@@ -192,6 +219,7 @@ transform: rotate(-25deg);
 }
 #about button {
 padding: .5rem 1rem;
+margin-top: 1rem;
 background: var(--white);
 color: var(--black);
 }
@@ -199,7 +227,6 @@ color: var(--black);
 background: rgba(255, 255, 255, .2);
 border-radius: .5rem;
 }
-
 
 
 #work {
