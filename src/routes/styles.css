@@ -94,6 +94,9 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+a.color {
+  color:#1AaAd2;
+}
 a:hover {
   text-decoration: underline;
 }
